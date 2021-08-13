@@ -1,0 +1,10 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = yeyee2901
+	email = yhxzen2901@gmail.com
+
+[alias]
+        tree = log --all --decorate --graph
+[init]
+	defaultBranch = main
