@@ -100,18 +100,15 @@ _noremap('n', '<Leader>rn',  '<cmd>lua require("lspsaga.rename").rename()<CR>')
 -- close : obviously, close pop up menu
 -- scroll : scroll signature help
 _noremap_expr('i', '<Tab>',      'compe#confirm("<Tab>")')
-_noremap_expr('i', '<C-Space>',  'compe#complete("<C-Space>")')
 _noremap_expr('i', '<C-q>',      'compe#close("<C-q>")')
 _noremap_expr('i', '<C-k>',      'compe#scroll({"delta": -4})')
 _noremap_expr('i', '<C-j>',      'compe#scroll({"delta": +4})')
 
--- P
 
 
 -- PLUGIN: fuGITive (the rest are provided by telescope functionality)
 _noremap('n', '<Leader>gs', '<cmd>G<CR>')
 _noremap('n', '<Leader>ga', '<cmd>Git add .<CR>')
-
 
 -- for easy merge conflict resolving
 _noremap('n', '<Leader>gh', '<cmd>diffget //2<CR>')
@@ -122,8 +119,10 @@ _noremap('n', '<Leader>gl', '<cmd>diffget //3<CR>')
 _noremap('n', '<Leader>mp', '<cmd>MarkdownPreviewToggle<CR>')
 _noremap('n', '<Leader>mi', '<cmd>call mdip#MarkdownClipboardImage()<CR>')
 
+
 -- PLUGIN: Tree-sitter
 _noremap('n', '<Leader>tp', '<cmd>TSPlaygroundToggle<CR>')
+
 
 -- PLUGIN: Telescope
 _noremap('n', '<Leader>t?',  '<cmd>lua require("my-telescope.wrapper").tele_keymaps()<CR>')
@@ -144,6 +143,7 @@ _noremap('n', '<Leader>tlwd',  '<cmd>lua require("my-telescope.wrapper").tele_ls
 _noremap('n', '<Leader>tla',   '<cmd>lua require("my-telescope.wrapper").tele_lsp_range_code_actions()<CR>')
 _noremap('n', '<Leader>tlgd',  '<cmd>lua require("my-telescope.wrapper").tele_lsp_definitions()<CR>')
 _noremap('n', '<Leader>tlr',   '<cmd>lua require("my-telescope.wrapper").tele_lsp_references()<CR>')
+
 
 -- PLUGIN: VimWiki
 _noremap('n', '<Leader>wj',     '<cmd>VimwikiNextLink<CR>')
