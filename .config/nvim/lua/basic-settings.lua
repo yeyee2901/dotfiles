@@ -1,7 +1,7 @@
 -- BASIC SETTINGS -----------------------------------------------
 local my_options = {
   encoding        = 'utf8',
-  relativenumber  = true,
+  number          = true,
   clipboard       = 'unnamedplus',    -- Requires xclip (apt)
   mouse           = 'a',
   swapfile        = false,

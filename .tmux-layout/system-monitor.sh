@@ -4,3 +4,4 @@ tmux new-window -d -t 'SystemMonitor' -n 'Network'
 
 tmux send-keys -t 'SystemMonitor':'System'    'htop' Enter
 tmux send-keys -t 'SystemMonitor':'Network'   'wavemon' Enter
+

@@ -38,6 +38,7 @@ plugins=(
 	git
 	zsh-autosuggestions
 	zsh-syntax-highlighting
+    fzf
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -70,7 +71,7 @@ alias r='. ranger'
 # TMUX aliases
 alias t='env TERM=screen-256color tmux'
 alias tls='t list-session'
-alias tat='t attach-session -t'         # attach to target session
+alias tat='t attach-session'
 alias tnews='t new-session -d -s'
 alias tneww='t new-window -n'           
 alias tkills='t kill-session -t'        # kill session, specify session name
@@ -83,6 +84,12 @@ alias wiki='nvim ~/vimwiki/index.wiki'
 
 # Dot files
 alias dotfiles='/usr/bin/git --git-dir=/home/yeyee2901/.dotfiles/ --work-tree=/home/yeyee2901'
+
+
+###################
+# FZF stuffs      #
+###################
+alias fzf-cd='cd $(fdfind --type directory . $HOME | fzf)'
 
 
 ###################
