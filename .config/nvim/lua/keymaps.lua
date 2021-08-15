@@ -56,6 +56,7 @@ _noremap('n', '<M-h>',  '<C-w><')
 -- Create splits
 _noremap('n', 'sv', '<C-w>v')
 _noremap('n', 'sh', '<C-w>s')
+_noremap('n', 'sq', '<C-w>q')
 
 
 -- Tab keymappings ---------------------------------------------------------------

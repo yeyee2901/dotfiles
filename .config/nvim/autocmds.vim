@@ -6,14 +6,14 @@ augroup END
 
 augroup CIndentation
     autocmd!
+    autocmd FileType c,cpp,objc,objcpp,lua,php,javascript,html,css set tabstop=2
+    autocmd FileType c,cpp,objc,objcpp,lua,php,javascript,html,css set softtabstop=2
+    autocmd FileType c,cpp,objc,objcpp,lua,php,javascript,html,css set shiftwidth=2
 augroup END
 
 " For c like files, clang formatting insist using 2 spaces
 augroup NonCIndent
     autocmd!
-    autocmd FileType c,cpp,objc,objcpp,lua set tabstop=2
-    autocmd FileType c,cpp,objc,objcpp,lua set softtabstop=2
-    autocmd FileType c,cpp,objc,objcpp,lua set shiftwidth=2
 augroup END
 
 " Vim wiki

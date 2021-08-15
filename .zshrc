@@ -98,6 +98,11 @@ alias fzf-cd='cd $(fdfind --type directory . $HOME | fzf-tmux)'
 ###################
 figlet -f /usr/share/figlet/fonts/pagga.tlf "Pop-OS 21.04" | lolcat
 
+###################
+# REMOTES         #
+###################
+WM_BIMA=te18003@bima.eng.wima.ac.id
+
 
 
 ###################
