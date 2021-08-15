@@ -76,6 +76,7 @@ alias tnews='t new-session -d -s'
 alias tneww='t new-window -n'           
 alias tkills='t kill-session -t'        # kill session, specify session name
 alias tkillw='t kill-window'            # kill current window
+alias tka='t kill-server'
 
 # Vim aliases
 alias v='vim'
@@ -89,7 +90,7 @@ alias dotfiles='/usr/bin/git --git-dir=/home/yeyee2901/.dotfiles/ --work-tree=/h
 ###################
 # FZF stuffs      #
 ###################
-alias fzf-cd='cd $(fdfind --type directory . $HOME | fzf)'
+alias fzf-cd='cd $(fdfind --type directory . $HOME | fzf-tmux)'
 
 
 ###################
