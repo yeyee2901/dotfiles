@@ -58,6 +58,7 @@ require('packer').startup(function()
   -- Tree Sitter
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use {'nvim-treesitter/playground'}
+  use {'nvim-treesitter/nvim-treesitter-textobjects'}
 
   -- Telescopeee, behold the most overpowered meta plugin
   use {'nvim-lua/popup.nvim'}

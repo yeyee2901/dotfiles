@@ -23,18 +23,19 @@ require('compe').setup {
     min_height = 1,
   };
 
-
   source = {
     path = true;
     buffer = true;
-    snippets_nvim = false;
     ultisnips = true;
     nvim_lsp = true;
-    nvim_lua = true;
+
+    -- disabled sources
+    tags = false;
+    snippets_nvim = false;
+    nvim_lua = false;
     calc = false;
     vsnip = false;
     spell = false;
-    tags = false;
   };
 }
 
