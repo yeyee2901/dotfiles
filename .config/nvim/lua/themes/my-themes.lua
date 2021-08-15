@@ -118,4 +118,5 @@ end
 -- Vim colorizer
 require('colorizer').setup()
 
+vim.cmd('hi CursorLine guibg=#300840')
 return M
