@@ -70,6 +70,7 @@ _noremap('n', '<Tab>h', '<cmd>tabprevious<CR>')
 -- Plugin specific keymaps -------------------------------------------------------
 -- Plugins are prefixed with <Leader> (space key)
 
+
 -- PLUGIN: CMake
 _noremap('n', '<Leader>cg', '<cmd>CMakeClean<CR><cmd>CMakeGenerate<CR>')
 _noremap('n', '<Leader>cb', '<cmd>CMakeBuild<CR>')

@@ -81,7 +81,7 @@ alias tka='t kill-server'
 # Vim aliases
 alias v='vim'
 alias nv='nvim'
-alias wiki='nvim ~/vimwiki/index.wiki'
+alias wiki='cd ~/vimwiki ; nvim ~/vimwiki/index.wiki'
 
 # Dot files
 alias dotfiles='/usr/bin/git --git-dir=/home/yeyee2901/.dotfiles/ --work-tree=/home/yeyee2901'

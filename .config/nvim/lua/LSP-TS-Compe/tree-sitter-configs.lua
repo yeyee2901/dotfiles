@@ -4,7 +4,9 @@ require('nvim-treesitter.configs').setup {
 
 	highlight = {
 		enable = true,
-    disable = { "markdown" },        -- ISSUE: Breaks everything in MD
+
+    -- ISSUE: Breaks some text highlighting
+    disable = { "markdown", "latex", "html", "css" },
 		additional_vim_regex_highlighting = false,
 	},
 

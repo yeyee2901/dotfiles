@@ -14,12 +14,34 @@ M.set_tokyonight = function (variant)
   vim.g.tokyonight_style = variant
   vim.cmd('colorscheme tokyonight')
   lualine.setup_lualine('tokyonight')
+
+  -- Transparency
+  vim.cmd('hi CursorLine guibg=#300840')
+  vim.cmd('hi TabLine guibg=none')
+  vim.cmd('hi SignColumn guibg=none')
+  vim.cmd('hi LineNr guibg=none')
+  vim.cmd('hi Normal guibg=none')
+  vim.cmd('hi TabLineSel guibg=none')
+  vim.cmd('hi TabLineFill guibg=none')
+  vim.cmd('hi TabLine guibg=none')
+
 end
 
 -- CodeDark theme (VSCode)
 M.set_codedark = function ()
   vim.cmd('colorscheme codedark')
   lualine.setup_lualine('onedark')
+
+  -- Transparency
+  vim.cmd('hi CursorLine guibg=#300840')
+  vim.cmd('hi TabLine guibg=none')
+  vim.cmd('hi SignColumn guibg=none')
+  vim.cmd('hi LineNr guibg=none')
+  vim.cmd('hi Normal guibg=none')
+  vim.cmd('hi TabLineSel guibg=none')
+  vim.cmd('hi TabLineFill guibg=none')
+  vim.cmd('hi TabLine guibg=none')
+
 end
 
 -- Ayu Theme
@@ -27,6 +49,17 @@ M.set_ayu = function (variant)
   vim.cmd('let ayucolor = "'..variant..'"')
   vim.cmd('colorscheme ayu')
   lualine.setup_lualine('ayu_'..variant)
+
+  -- Transparency
+  vim.cmd('hi CursorLine guibg=#300840')
+  vim.cmd('hi TabLine guibg=none')
+  vim.cmd('hi SignColumn guibg=none')
+  vim.cmd('hi LineNr guibg=none')
+  vim.cmd('hi Normal guibg=none')
+
+  vim.cmd('hi TabLineSel guibg=none guifg=#ff8f00')
+  vim.cmd('hi TabLineFill guifg=none guibg=none')
+  vim.cmd('hi TabLine gui=none guibg=none guifg=none')
 end
 
 -- Monokai (Sublime Text)
@@ -35,12 +68,34 @@ M.set_monokai = function ()
   vim.cmd('colorscheme monokai_pro')
   vim.opt.termguicolors = true
   lualine.setup_lualine('molokai')
+
+  -- Transparency
+  vim.cmd('hi CursorLine guibg=#300840')
+  vim.cmd('hi TabLine guibg=none')
+  vim.cmd('hi SignColumn guibg=none')
+  vim.cmd('hi LineNr guibg=none')
+  vim.cmd('hi Normal guibg=none')
+  vim.cmd('hi TabLineSel guifg=#d00980 guibg=none')
+  vim.cmd('hi TabLineFill guibg=none')
+  vim.cmd('hi TabLine guibg=none')
+
 end
 
 -- Aurora theme by ray X, strong but can hurt eyes
 M.set_aurora = function()
   vim.cmd('colorscheme aurora')
   lualine.setup_lualine('palenight')
+
+  -- Transparency
+  vim.cmd('hi CursorLine guibg=#300840')
+  vim.cmd('hi TabLine guibg=none')
+  vim.cmd('hi SignColumn guibg=none')
+  vim.cmd('hi LineNr guibg=none')
+  vim.cmd('hi Normal guibg=none')
+  vim.cmd('hi TabLineSel guibg=none')
+  vim.cmd('hi TabLineFill guibg=none')
+  vim.cmd('hi TabLine guibg=none')
+
 end
 
 -- Gruvbuddy by TJDevries, calming for some reason
@@ -49,13 +104,16 @@ M.set_gruvbuddy = function ()
   require('colorbuddy').colorscheme('gruvbuddy')
   lualine.setup_lualine('seoul256')
 
-  -- transparent
+  -- Transparency
+  vim.cmd('hi CursorLine guibg=#300840')
+  vim.cmd('hi TabLine guibg=none')
   vim.cmd('hi SignColumn guibg=none')
   vim.cmd('hi LineNr guibg=none')
   vim.cmd('hi Normal guibg=none')
   vim.cmd('hi TabLineSel guibg=none')
   vim.cmd('hi TabLineFill guibg=none')
   vim.cmd('hi TabLine guibg=none')
+
 end
 
 -- The almighty gruvbox
@@ -78,6 +136,17 @@ M.set_gruvbox = function ()
 
   -- to avoid confusion
   vim.cmd('hi link Function GruvboxAquaBold')
+
+  -- Transparency
+  vim.cmd('hi CursorLine guibg=#300840')
+  vim.cmd('hi TabLine guibg=none')
+  vim.cmd('hi SignColumn guibg=none')
+  vim.cmd('hi LineNr guibg=none')
+  vim.cmd('hi Normal guibg=none')
+  vim.cmd('hi TabLineSel guibg=none')
+  vim.cmd('hi TabLineFill guibg=none')
+  vim.cmd('hi TabLine guibg=none')
+
 end
 
 -- More almighty gruvbox material, with treesitter support
@@ -111,12 +180,21 @@ M.set_gruvbox_material = function ()
 
   -- Fix tabline transparency
   vim.cmd('hi TabLineSel guibg=none guifg=#B8BB26')
+
+  -- Transparency
+  vim.cmd('hi CursorLine guibg=#300840')
   vim.cmd('hi TabLine guibg=none')
+  vim.cmd('hi SignColumn guibg=none')
+  vim.cmd('hi LineNr guibg=none')
+  vim.cmd('hi Normal guibg=none')
+  vim.cmd('hi TabLineSel guibg=none')
+  vim.cmd('hi TabLineFill guibg=none')
+  vim.cmd('hi TabLine guibg=none')
+
 end
 
 
 -- Vim colorizer
 require('colorizer').setup()
 
-vim.cmd('hi CursorLine guibg=#300840')
 return M

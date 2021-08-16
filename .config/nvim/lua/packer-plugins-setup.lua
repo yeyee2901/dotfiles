@@ -79,6 +79,9 @@ require('packer').startup(function()
   use {'jiangmiao/auto-pairs'}
   use {'tpope/vim-surround'}
 
+  -- Commentary
+  use {'tpope/vim-commentary'}
+
   -- Markdown editing
   use {'iamcco/markdown-preview.nvim', run = ':call mkdp#util#install()'}
   use {'ferrine/md-img-paste.vim'}
