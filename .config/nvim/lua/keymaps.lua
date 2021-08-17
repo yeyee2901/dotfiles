@@ -140,7 +140,7 @@ _noremap('n', '<Leader>tc',  '<cmd>lua require("my-telescope.wrapper").tele_comm
 _noremap('n', '<Leader>tf',  '<cmd>lua require("my-telescope.wrapper").tele_find_files()<CR>')
 _noremap('n', '<Leader>tb',  '<cmd>lua require("my-telescope.wrapper").tele_buffer_lists()<CR>')
 _noremap('n', '<Leader>tz',  '<cmd>lua require("my-telescope.wrapper").tele_current_buffer_fuzzy_find()<CR>')
-_noremap('n', '<Leader>ts', '<cmd>lua require("my-telescope.wrapper").tele_live_grep()<CR>')
+_noremap('n', '<Leader>ts',  '<cmd>lua require("my-telescope.wrapper").tele_live_grep()<CR>')
 
 -- Query all function names, vars, and ohter symbols from Tree Sitter queries
 _noremap('n', '<Leader>tt', '<cmd>lua require("my-telescope.wrapper").tele_treesitter()<CR>')

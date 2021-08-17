@@ -38,4 +38,3 @@ function SimpleTabline()
 endfunction
 
 set tabline=%!SimpleTabline()
-

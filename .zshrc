@@ -1,4 +1,4 @@
-#                                                                                          #
+############################################################################################
 #                                                                                          #
 #    ████████  ████████ ██      ██     ██████                      ████ ██                 #
 #   ░░░░░░██  ██░░░░░░ ░██     ░██    ██░░░░██                    ░██░ ░░   █████          #
@@ -26,7 +26,7 @@ export PATH=$PATH:$HOME/bin:/usr/local/bin:$HOME/.config/nvim/plugged/:$HOME/.lo
 export ZSH=$HOME/.oh-my-zsh
 
 # awesomepanda, af-magic, amuse
-ZSH_THEME="af-magic"
+ZSH_THEME="awesomepanda"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -104,6 +104,10 @@ figlet -f /usr/share/figlet/fonts/pagga.tlf "Pop-OS 21.04" | lolcat
 WM_BIMA=te18003@bima.eng.wima.ac.id
 
 
+###################
+# DIO             #
+###################
+DIODA=~/Pictures/Dio.png
 
 ###################
 # Other aliases   #

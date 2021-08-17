@@ -34,7 +34,7 @@ require('keymaps')
 
 -- require('themes.my-themes').set_aurora()
 -- require('themes.my-themes').set_tokyonight("night")
---require('themes.my-themes').set_codedark()
+-- require('themes.my-themes').set_codedark()
 -- require('themes.my-themes').set_gruvbox()
 
 -- Can be set to transparent
