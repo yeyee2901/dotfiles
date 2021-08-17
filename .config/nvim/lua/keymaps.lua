@@ -22,6 +22,9 @@ _noremap('n', '<S-h>', '<cmd>set hlsearch!<CR>')
 -- Make <S-y> behaves the same as <S-d> , <S-C>
 _noremap('n', '<S-y>', 'y$')
 
+-- Search and replace
+_noremap('n', 'S', ':%s/')
+
 -- Visual mode editing ----------------------------------------------------------
 _noremap('v', '<Tab>',   '>gv')
 _noremap('v', '<S-Tab>', '<gv')
@@ -70,7 +73,6 @@ _noremap('n', '<Tab>h', '<cmd>tabprevious<CR>')
 -- Plugin specific keymaps -------------------------------------------------------
 -- Plugins are prefixed with <Leader> (space key)
 
-
 -- PLUGIN: CMake
 _noremap('n', '<Leader>cg', '<cmd>CMakeClean<CR><cmd>CMakeGenerate<CR>')
 _noremap('n', '<Leader>cb', '<cmd>CMakeBuild<CR>')
@@ -106,11 +108,11 @@ _noremap('n', '<Leader>rn',  '<cmd>lua require("lspsaga.rename").rename()<CR>')
 -- complete : open pop up suggestions
 -- close : obviously, close pop up menu
 -- scroll : scroll signature help
-_noremap_expr('i', '<Tab>',      'compe#confirm("<Tab>")')
-_noremap_expr('i', '<C-c>',      'compe#complete("<C-c>")')
-_noremap_expr('i', '<C-q>',      'compe#close("<C-q>")')
-_noremap_expr('i', '<C-k>',      'compe#scroll({"delta": -4})')
-_noremap_expr('i', '<C-j>',      'compe#scroll({"delta": +4})')
+_noremap_expr('i', '<Tab>',        'compe#confirm("<Tab>")')
+_noremap_expr('i', '<C-c>',        'compe#complete("<C-c>")')
+_noremap_expr('i', '<C-q>',        'compe#close("<C-q>")')
+_noremap_expr('i', '<C-k>',        'compe#scroll({"delta": -4})')
+_noremap_expr('i', '<C-j>',        'compe#scroll({"delta": +4})')
 
 
 

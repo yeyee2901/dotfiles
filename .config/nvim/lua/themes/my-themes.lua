@@ -67,7 +67,7 @@ M.set_monokai = function ()
   require('monokai')
   vim.cmd('colorscheme monokai_pro')
   vim.opt.termguicolors = true
-  lualine.setup_lualine('molokai')
+  lualine.setup_lualine('horizon')
 
   -- Transparency
   vim.cmd('hi CursorLine guibg=#300840')

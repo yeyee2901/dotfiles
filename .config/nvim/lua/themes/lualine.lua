@@ -4,10 +4,9 @@ local M = {}
 -- Themes
 -----------------------------------------
 -- 16color  (blue,green,black dominant)
--- auto
 -- ayu_dark, ayu_light, ayu_mirage
 -- dracula
--- everforest (hijau toska)
+-- everforest (hijau)
 -- gruvbox, gruvbox_light, gruvbox_material (sort of cream pink-ish?)
 -- horizon (dark blue-pink dominant)
 -- iceberg_dark, iceberg_light (very dark purple - very light blue)
