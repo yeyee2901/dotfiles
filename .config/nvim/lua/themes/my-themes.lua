@@ -16,7 +16,7 @@ M.set_tokyonight = function (variant)
   lualine.setup_lualine('tokyonight')
 
   -- Transparency
-  vim.cmd('hi CursorLine guibg=#300840')
+  vim.cmd('hi CursorLine guibg=#3F3F3F')
   vim.cmd('hi TabLine guibg=none')
   vim.cmd('hi SignColumn guibg=none')
   vim.cmd('hi LineNr guibg=none')
@@ -24,6 +24,7 @@ M.set_tokyonight = function (variant)
   vim.cmd('hi TabLineSel guibg=none')
   vim.cmd('hi TabLineFill guibg=none')
   vim.cmd('hi TabLine guibg=none')
+  vim.cmd('hi ColorColumn guibg=#555555')
 
 end
 
@@ -33,7 +34,7 @@ M.set_codedark = function ()
   lualine.setup_lualine('onedark')
 
   -- Transparency
-  vim.cmd('hi CursorLine guibg=#300840')
+  vim.cmd('hi CursorLine guibg=#3F3F3F')
   vim.cmd('hi TabLine guibg=none')
   vim.cmd('hi SignColumn guibg=none')
   vim.cmd('hi LineNr guibg=none')
@@ -41,6 +42,7 @@ M.set_codedark = function ()
   vim.cmd('hi TabLineSel guibg=none')
   vim.cmd('hi TabLineFill guibg=none')
   vim.cmd('hi TabLine guibg=none')
+  vim.cmd('hi ColorColumn guibg=#555555')
 
 end
 
@@ -51,15 +53,15 @@ M.set_ayu = function (variant)
   lualine.setup_lualine('ayu_'..variant)
 
   -- Transparency
-  vim.cmd('hi CursorLine guibg=#300840')
+  vim.cmd('hi CursorLine guibg=#3F3F3F')
   vim.cmd('hi TabLine guibg=none')
   vim.cmd('hi SignColumn guibg=none')
   vim.cmd('hi LineNr guibg=none')
   vim.cmd('hi Normal guibg=none')
-
   vim.cmd('hi TabLineSel guibg=none guifg=#ff8f00')
   vim.cmd('hi TabLineFill guifg=none guibg=none')
   vim.cmd('hi TabLine gui=none guibg=none guifg=none')
+  vim.cmd('hi ColorColumn guibg=#555555')
 end
 
 -- Monokai (Sublime Text)
@@ -70,7 +72,7 @@ M.set_monokai = function ()
   lualine.setup_lualine('horizon')
 
   -- Transparency
-  vim.cmd('hi CursorLine guibg=#300840')
+  vim.cmd('hi CursorLine guibg=#3F3F3F')
   vim.cmd('hi TabLine guibg=none')
   vim.cmd('hi SignColumn guibg=none')
   vim.cmd('hi LineNr guibg=none')
@@ -78,6 +80,7 @@ M.set_monokai = function ()
   vim.cmd('hi TabLineSel guifg=#d00980 guibg=none')
   vim.cmd('hi TabLineFill guibg=none')
   vim.cmd('hi TabLine guibg=none')
+  vim.cmd('hi ColorColumn guibg=#555555')
 
 end
 
@@ -87,7 +90,7 @@ M.set_aurora = function()
   lualine.setup_lualine('palenight')
 
   -- Transparency
-  vim.cmd('hi CursorLine guibg=#300840')
+  vim.cmd('hi CursorLine guibg=#3F3F3F')
   vim.cmd('hi TabLine guibg=none')
   vim.cmd('hi SignColumn guibg=none')
   vim.cmd('hi LineNr guibg=none')
@@ -95,6 +98,7 @@ M.set_aurora = function()
   vim.cmd('hi TabLineSel guibg=none')
   vim.cmd('hi TabLineFill guibg=none')
   vim.cmd('hi TabLine guibg=none')
+  vim.cmd('hi ColorColumn guibg=#555555')
 
 end
 
@@ -105,7 +109,7 @@ M.set_gruvbuddy = function ()
   lualine.setup_lualine('seoul256')
 
   -- Transparency
-  vim.cmd('hi CursorLine guibg=#300840')
+  vim.cmd('hi CursorLine guibg=#3F3F3F')
   vim.cmd('hi TabLine guibg=none')
   vim.cmd('hi SignColumn guibg=none')
   vim.cmd('hi LineNr guibg=none')
@@ -113,6 +117,7 @@ M.set_gruvbuddy = function ()
   vim.cmd('hi TabLineSel guibg=none')
   vim.cmd('hi TabLineFill guibg=none')
   vim.cmd('hi TabLine guibg=none')
+  vim.cmd('hi ColorColumn guibg=#555555')
 
 end
 
@@ -138,7 +143,7 @@ M.set_gruvbox = function ()
   vim.cmd('hi link Function GruvboxAquaBold')
 
   -- Transparency
-  vim.cmd('hi CursorLine guibg=#300840')
+  vim.cmd('hi CursorLine guibg=#3F3F3F')
   vim.cmd('hi TabLine guibg=none')
   vim.cmd('hi SignColumn guibg=none')
   vim.cmd('hi LineNr guibg=none')
@@ -146,6 +151,7 @@ M.set_gruvbox = function ()
   vim.cmd('hi TabLineSel guibg=none')
   vim.cmd('hi TabLineFill guibg=none')
   vim.cmd('hi TabLine guibg=none')
+  vim.cmd('hi ColorColumn guibg=#555555')
 
 end
 
@@ -159,7 +165,7 @@ M.set_gruvbox_material = function ()
       gruvbox_material_transparent_background = true,
       gruvbox_material_visual = 'reverse',
       gruvbox_material_sign_column_background = 'none',
-      gruvbox_material_ui_contrast = 'low',
+      gruvbox_material_ui_contrast = 'high',
       gruvbox_material_diagnostic_line_highlight = false,
       gruvbox_material_diagnostic_text_highlight = false,
       gruvbox_material_palette = 'mix',
@@ -182,7 +188,7 @@ M.set_gruvbox_material = function ()
   vim.cmd('hi TabLineSel guibg=none guifg=#B8BB26')
 
   -- Transparency
-  vim.cmd('hi CursorLine guibg=#300840')
+  vim.cmd('hi CursorLine guibg=#3F3F3F')
   vim.cmd('hi TabLine guibg=none')
   vim.cmd('hi SignColumn guibg=none')
   vim.cmd('hi LineNr guibg=none')
@@ -190,8 +196,9 @@ M.set_gruvbox_material = function ()
   vim.cmd('hi TabLineSel guibg=none')
   vim.cmd('hi TabLineFill guibg=none')
   vim.cmd('hi TabLine guibg=none')
-
+  vim.cmd('hi ColorColumn guibg=#555555')
 end
+
 
 
 -- Vim colorizer

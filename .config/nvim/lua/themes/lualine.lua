@@ -30,10 +30,11 @@ local M = {}
 M.setup_lualine = function(theme)
     require('lualine').setup {
       options = {
-        icons_enabled = true,
-        theme = theme,
         component_separators = {'', ''},
         section_separators = {'', ''},
+        theme = theme,
+
+        icons_enabled = true,
         disabled_filetypes = {}
       },
       sections = {
