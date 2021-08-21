@@ -24,6 +24,7 @@ require('user-plugin-settings.setup-nvim-tree')
 require('user-plugin-settings.setup-telescope')
 require('user-plugin-settings.setup-snippets')
 require('user-plugin-settings.setup-markdown-preview')
+require('user-plugin-settings.setup-vimwiki')
 
 require('LSP-TS-Compe.compe_config')
 require('LSP-TS-Compe.lsp-diagnostic-setup')

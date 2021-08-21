@@ -22,7 +22,6 @@ local my_options = {
   inccommand      = 'split',
   signcolumn      = 'yes',
   colorcolumn     = '85',
-  wrapmargin      = 85,
   lazyredraw      = true,
   splitbelow      = true,
   splitright      = true,
