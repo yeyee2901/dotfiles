@@ -51,7 +51,7 @@ M.setup_lualine = function(theme)
           { 'filename', path = 0, },
           { 'diagnostics',
             sources = {'nvim_lsp'},
-            symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '},
+            symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '},
             color_error = '#ff0000',
             color_warn = '#dff705',
             color_info = '#16f70a',
@@ -65,7 +65,7 @@ M.setup_lualine = function(theme)
              color_added = '#16f70a',
              color_modified = '#dff705',
              color_removed = '#ff0000',
-             symbols = {added = ' 🞧 ', modified = ' ~ ', removed = ' ⊖ '}
+             symbols = {added = ' ', modified = '柳 ', removed = ' '},
           },
         },
         lualine_y = { 'branch' },
