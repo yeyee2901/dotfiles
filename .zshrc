@@ -91,6 +91,7 @@ alias dotfiles='/usr/bin/git --git-dir=/home/yeyee2901/.dotfiles/ --work-tree=/h
 # FZF stuffs      #
 ###################
 alias fzf-cd='cd $(fdfind --type directory . $HOME | fzf-tmux)'
+FZF_DEFAULT_COMMAND='fzf'
 
 
 ###################

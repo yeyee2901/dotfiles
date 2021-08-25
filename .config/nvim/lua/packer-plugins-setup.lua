@@ -82,12 +82,16 @@ require('packer').startup(function()
   -- Commentary
   use {'tpope/vim-commentary'}
 
+  -- Visual Multi
+  use {'mg979/vim-visual-multi'}
+
   -- Markdown editing
   use {'iamcco/markdown-preview.nvim', run = ':call mkdp#util#install()'}
   use {'ferrine/md-img-paste.vim'}
 
   -- Note taking
   use {'vimwiki/vimwiki'}
+
 
 end)
 
