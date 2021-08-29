@@ -155,17 +155,6 @@ _noremap('n', '<Leader>tlgd',  '<cmd>lua require("my-telescope.wrapper").tele_ls
 _noremap('n', '<Leader>tlr',   '<cmd>lua require("my-telescope.wrapper").tele_lsp_references()<CR>')
 
 
--- PLUGIN: VimWiki
-_noremap('n', '<Leader>wj',     '<cmd>VimwikiNextLink<CR>')
-_noremap('n', '<Leader>wk',     '<cmd>VimwikiPrevLink<CR>')
-_noremap('n', '<Leader>wtl',    '<cmd>VimwikiToggleListItem<CR>')
-_noremap('n', '<Leader>wtbc',   '<cmd>VimwikiTable<CR>')
-_noremap('n', '<Leader>wtbl',   '<cmd>VimwikiTableMoveColumnRight<CR>')
-_noremap('n', '<Leader>wtbh',   '<cmd>VimwikiTableMoveColumnLeft<CR>')
-_noremap('n', '<CR><CR>',       '<cmd>VimwikiFollowLink<CR>')
-_noremap('n', '<CR>s',          '<cmd>VimwikiSplitLink<CR>')
-_noremap('n', '<CR>v',          '<cmd>VimwikiVSplitLink<CR>')
-
 -- Open quickfix list (you can send any search result from telescope to quickfix list
 -- by pressing Ctrl + q while Telescope is open)
 -- There are 2 ways to fill quickfix list:
@@ -179,6 +168,36 @@ _noremap('n', '<Leader>tgs',  '<cmd>lua require("my-telescope.wrapper").tele_git
 _noremap('n', '<Leader>tgf',  '<cmd>lua require("my-telescope.wrapper").tele_git_files()<CR>')
 _noremap('n', '<Leader>tgca', '<cmd>lua require("my-telescope.wrapper").tele_git_commits()<CR>')
 _noremap('n', '<Leader>tgcb', '<cmd>lua require("my-telescope.wrapper").tele_git_branch_diff()<CR>')
+
+-- PLUGIN: VimWiki
+_noremap('n', '<Leader>wj',     '<cmd>VimwikiNextLink<CR>')
+_noremap('n', '<Leader>wk',     '<cmd>VimwikiPrevLink<CR>')
+_noremap('n', '<Leader>wtl',    '<cmd>VimwikiToggleListItem<CR>')
+_noremap('n', '<Leader>wtbc',   '<cmd>VimwikiTable<CR>')
+_noremap('n', '<Leader>wtbl',   '<cmd>VimwikiTableMoveColumnRight<CR>')
+_noremap('n', '<Leader>wtbh',   '<cmd>VimwikiTableMoveColumnLeft<CR>')
+_noremap('n', '<Leader>wa',     '<cmd>VimwikiAll2HTML<CR>')
+_noremap('n', '<CR><CR>',       '<cmd>VimwikiFollowLink<CR>')
+_noremap('n', '<CR>s',          '<cmd>VimwikiSplitLink<CR>')
+_noremap('n', '<CR>v',          '<cmd>VimwikiVSplitLink<CR>')
+
+-- PLUGIN: Vim-Visual-Multi
+-- Must be done according to documentation likewise:
+-- 1. Declare empty global table
+-- 2. Fill in the remapping as needed
+-- 3. All default mapping that are unchanged will still be available
+vim.g.VM_maps = {
+  ['Find Under']         = '<C-m>',
+  ['Find Subword Under'] = '<C-m>',
+  ["Select Cursor Down"] = '<M-C-Down>',
+  ["Select Cursor Up"]   = '<M-C-Up>',
+}
+
+-- Enable mouse support for creating cursors
+-- Left-Click = Spawn cursor
+-- Right-Click = Spawn cursor, selecting the next word
+vim.g.VM_mouse_mappings = true
+
 
 -- SOME HELPER FUNCTIONALITY
 -- open neovim config

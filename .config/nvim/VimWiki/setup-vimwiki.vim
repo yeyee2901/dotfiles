@@ -30,3 +30,4 @@ let arduino_wiki.template_ext = '.tpl'
 let arduino_wiki.template_default = 'syntax-highlighted'
 
 let g:vimwiki_list = [knowledge,academy, arduino_wiki]
+let g:vimwiki_conceal_pre = 1

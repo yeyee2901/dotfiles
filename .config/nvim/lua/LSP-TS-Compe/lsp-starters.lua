@@ -114,8 +114,14 @@ require('lspconfig').rust_analyzer.setup{
   capabilities = snippet_enable,
 }
 
--- sudo apt install clangd
-require('lspconfig').clangd.setup{
+-- sudo apt install clangd / ccls
+-- require('lspconfig').clangd.setup{
+--   filetypes = { "c", "cpp", "objc", "objcpp" },
+--   on_attach = LSP_signature_setup.on_attach,
+--   capabilities = snippet_enable,
+-- }
+
+require('lspconfig').ccls.setup{
   filetypes = { "c", "cpp", "objc", "objcpp" },
   on_attach = LSP_signature_setup.on_attach,
   capabilities = snippet_enable,
