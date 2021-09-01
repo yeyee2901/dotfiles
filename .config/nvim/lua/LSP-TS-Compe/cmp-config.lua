@@ -1,10 +1,9 @@
-local M = {}
-
 local cmp = require('cmp')
+local types = require('cmp.types')
 
 cmp.setup({
   completion = {
-    completeopt = 'menuone,noselect',
+    completeopt = 'menu,menuone,noselect',
   },
 
   mapping = {
@@ -14,9 +13,16 @@ cmp.setup({
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-c>'] = cmp.mapping.complete(),
     ['<C-q>'] = cmp.mapping.close(),
-    ['<Tab>'] = cmp.mapping.confirm({
-      select = true,
-    })
+
+    -- ISSUE: Weird Behavior
+    -- ['<Tab>'] = cmp.mapping.confirm({
+    --   behavior = cmp.ConfirmBehavior.Replace,
+    --   select = true,
+    -- })
+  },
+
+  confirmation = {
+    default_behavior = types.cmp.ConfirmBehavior.Insert,
   },
 
   -- Autocomplete source
@@ -97,5 +103,3 @@ cmp.setup({
 --     spell = false;
 --   };
 -- }
-
-return M
