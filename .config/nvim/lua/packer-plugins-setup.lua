@@ -51,9 +51,19 @@ require('packer').startup(function()
 
   -- LSP (Language Server)
   use {'neovim/nvim-lspconfig'}
-  use {'hrsh7th/nvim-compe'}
   use {'ray-x/lsp_signature.nvim'}
   use {'glepnir/lspsaga.nvim'}
+
+  -- Completion engine
+  -- use {'hrsh7th/nvim-compe'} -- Deprecated
+  use {'hrsh7th/nvim-cmp',
+    requires = {
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'onsails/lspkind-nvim',
+    }
+  }
 
   -- Tree Sitter
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }

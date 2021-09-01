@@ -103,16 +103,17 @@ _noremap('n', '<Leader>k',   '<cmd>lua require("lspsaga.diagnostic").lsp_jump_di
 _noremap('n', '<Leader>rn',  '<cmd>lua require("lspsaga.rename").rename()<CR>')
 
 
--- PLUGIN: Nvim-compe (for code completion)
+-- PLUGIN: Nvim-cmp (for code completion)
+-- DEPRECATED:
 -- confirm : pick item
 -- complete : open pop up suggestions
 -- close : obviously, close pop up menu
 -- scroll : scroll signature help
-_noremap_expr('i', '<Tab>',        'compe#confirm("<Tab>")')
-_noremap_expr('i', '<C-c>',        'compe#complete("<C-c>")')
-_noremap_expr('i', '<C-q>',        'compe#close("<C-q>")')
-_noremap_expr('i', '<C-k>',        'compe#scroll({"delta": -4})')
-_noremap_expr('i', '<C-j>',        'compe#scroll({"delta": +4})')
+-- _noremap_expr('i', '<Tab>',        'compe#confirm("<Tab>")')
+-- _noremap_expr('i', '<C-c>',        'compe#complete("<C-c>")')
+-- _noremap_expr('i', '<C-q>',        'compe#close("<C-q>")')
+-- _noremap_expr('i', '<C-k>',        'compe#scroll({"delta": -4})')
+-- _noremap_expr('i', '<C-j>',        'compe#scroll({"delta": +4})')
 
 
 
@@ -154,7 +155,6 @@ _noremap('n', '<Leader>tla',   '<cmd>lua require("my-telescope.wrapper").tele_ls
 _noremap('n', '<Leader>tlgd',  '<cmd>lua require("my-telescope.wrapper").tele_lsp_definitions()<CR>')
 _noremap('n', '<Leader>tlr',   '<cmd>lua require("my-telescope.wrapper").tele_lsp_references()<CR>')
 
-
 -- Open quickfix list (you can send any search result from telescope to quickfix list
 -- by pressing Ctrl + q while Telescope is open)
 -- There are 2 ways to fill quickfix list:
@@ -168,6 +168,12 @@ _noremap('n', '<Leader>tgs',  '<cmd>lua require("my-telescope.wrapper").tele_git
 _noremap('n', '<Leader>tgf',  '<cmd>lua require("my-telescope.wrapper").tele_git_files()<CR>')
 _noremap('n', '<Leader>tgca', '<cmd>lua require("my-telescope.wrapper").tele_git_commits()<CR>')
 _noremap('n', '<Leader>tgcb', '<cmd>lua require("my-telescope.wrapper").tele_git_branch_diff()<CR>')
+
+-- Emojis
+_noremap('n', '<Leader>tea', '<cmd>lua require("my-telescope.wrapper").tele_emoji_all()<CR>')
+_noremap('n', '<Leader>teg', '<cmd>lua require("my-telescope.wrapper").tele_gitmoji()<CR>')
+_noremap('n', '<Leader>tee', '<cmd>lua require("my-telescope.wrapper").tele_emoji()<CR>')
+_noremap('n', '<Leader>tek', '<cmd>lua require("my-telescope.wrapper").tele_kaomoji()<CR>')
 
 -- PLUGIN: VimWiki
 _noremap('n', '<Leader>wj',     '<cmd>VimwikiNextLink<CR>')

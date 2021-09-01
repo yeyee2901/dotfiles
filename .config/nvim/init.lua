@@ -26,7 +26,7 @@ require('user-plugin-settings.setup-snippets')
 require('user-plugin-settings.setup-markdown-preview')
 vim.cmd[[source ~/.config/nvim/VimWiki/setup-vimwiki.vim]]
 
-require('LSP-TS-Compe.compe_config')
+require('LSP-TS-Compe.cmp-config')
 require('LSP-TS-Compe.lsp-diagnostic-setup')
 require('LSP-TS-Compe.lsp-starters')
 require('LSP-TS-Compe.tree-sitter-configs')

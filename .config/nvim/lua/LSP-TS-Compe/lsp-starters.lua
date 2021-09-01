@@ -45,33 +45,33 @@ local LSP_signature_setup = {
     -- Big thanks to Takuya Matsuyama from Japan for providing this icon setup.
     -- He provided amazing video on setting up LSP on Neovim 0.5.0.
     -- https://blog.inkdrop.info/how-to-set-up-neovim-0-5-modern-plugins-lsp-treesitter-etc-542c3d9c9887
-    require('vim.lsp.protocol').CompletionItemKind = {
-      '  Text',
-      '  Method',
-      '  Function',
-      '  Constructor',
-      '  Attribute/Field',
-      '  Var',
-      '  Class',
-      'ﰮ  Interface',
-      '  Module',
-      '  Property',
-      '  Unit',
-      '  Value',
-      '  Enum',
-      '  Keyword',
-      '﬌  Snippet',
-      '  Color',
-      '  File',
-      '  Ref',
-      '  Folder',
-      '  Enum Member',
-      '  Constant',
-      '  Structure',
-      '  Event',
-      'OP Operator',
-      '  TypeParam',
-    }
+    -- require('vim.lsp.protocol').CompletionItemKind = {
+    --   '  Text',
+    --   '  Method',
+    --   '  Function',
+    --   '  Constructor',
+    --   '  Attribute/Field',
+    --   '  Var',
+    --   '  Class',
+    --   'ﰮ  Interface',
+    --   '  Module',
+    --   '  Property',
+    --   '  Unit',
+    --   '  Value',
+    --   '  Enum',
+    --   '  Keyword',
+    --   '﬌  Snippet',
+    --   '  Color',
+    --   '  File',
+    --   '  Ref',
+    --   '  Folder',
+    --   '  Enum Member',
+    --   '  Constant',
+    --   '  Structure',
+    --   '  Event',
+    --   'OP Operator',
+    --   '  TypeParam',
+    -- }
 
     -- autoformat on save
     if client.resolved_capabilities.document_formatting then
@@ -97,21 +97,22 @@ lsp_saga.init_lsp_saga{
 }
 
 -- for Ultisnips integration
-local snippet_enable = vim.lsp.protocol.make_client_capabilities()
-snippet_enable.textDocument.completion.completionItem.snippetSupport = true
-snippet_enable.textDocument.completion.completionItem.resolveSupport = {
-  properties = {
-    'documentation',
-    'detail',
-    'additionalTextEdits',
-  }
-}
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- capabilities.textDocument.completion.completionItem.resolveSupport = {
+--   properties = {
+--     'documentation',
+--     'detail',
+--     'additionalTextEdits',
+--   }
+-- }
 
 -- Clone from git, then run 'cargo xtask install --server'
 require('lspconfig').rust_analyzer.setup{
   filetypes = { "rust" },
   on_attach = LSP_signature_setup.on_attach,
-  capabilities = snippet_enable,
+  capabilities = capabilities,
 }
 
 -- sudo apt install clangd / ccls
@@ -124,7 +125,7 @@ require('lspconfig').rust_analyzer.setup{
 require('lspconfig').ccls.setup{
   filetypes = { "c", "cpp", "objc", "objcpp" },
   on_attach = LSP_signature_setup.on_attach,
-  capabilities = snippet_enable,
+  capabilities = capabilities,
 }
 
 -- sudo npm install -g vim-language-server
@@ -134,14 +135,14 @@ require('lspconfig').vimls.setup(LSP_signature_setup)
 require('lspconfig').pyright.setup{
   filetypes = { "python" },
   on_attach = LSP_signature_setup.on_attach,
-  capabilities = snippet_enable,
+  capabilities = capabilities,
 }
 
 -- sudo npm install -g bash-language-server
 require('lspconfig').bashls.setup{
   filetypes = {'sh', 'zsh'},
   on_attach = LSP_signature_setup.on_attach,
-  capabilities = snippet_enable,              -- UltiSnips has snippet for zsh
+  capabilities = capabilities,              -- UltiSnips has snippet for zsh
 }
 
 -- pip install cmake-language-server
@@ -153,30 +154,30 @@ require('lspconfig').cmake.setup{
 -- npm i -g vscode-langservers-extracted
 require('lspconfig').html.setup{
   on_attach = LSP_signature_setup.on_attach,
-  capabilities = snippet_enable
+  capabilities = capabilities
 }
 
 require('lspconfig').cssls.setup{
   on_attach = LSP_signature_setup.on_attach,
-  capabilities = snippet_enable
+  capabilities = capabilities
 }
 
 -- npm i -g typescript typescript typescript-language-server
 require('lspconfig').tsserver.setup{
   on_attach = LSP_signature_setup.on_attach,
-  capabilities = snippet_enable
+  capabilities = capabilities
 }
 
 -- npm i -g intelephense
 require('lspconfig').intelephense.setup{
   on_attach = LSP_signature_setup.on_attach,
-  capabilities = snippet_enable
+  capabilities = capabilities
 }
 
 -- npm i -g sql-language-server
 require('lspconfig').sqlls.setup{
   on_attach = LSP_signature_setup.on_attach,
-  capabilities = snippet_enable
+  capabilities = capabilities
 }
 
 -- cargo install tectonic (for compiling)
@@ -184,7 +185,7 @@ require('lspconfig').sqlls.setup{
 require('lspconfig').texlab.setup{
 
   on_attach = LSP_signature_setup.on_attach,
-  capabilities = snippet_enable,
+  capabilities = capabilities,
 
   cmd = { 'texlab' },
   filetypes = { 'tex', 'bib' },
@@ -264,5 +265,5 @@ require('lspconfig').sumneko_lua.setup {
 
   -- On attaching the language server, We to also attach lsp_signature & snippet enable
   on_attach = LSP_signature_setup.on_attach,
-  capabilities = snippet_enable,
+  capabilities = capabilities,
 }

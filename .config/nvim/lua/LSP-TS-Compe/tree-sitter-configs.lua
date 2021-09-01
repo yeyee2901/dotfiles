@@ -5,8 +5,10 @@ require('nvim-treesitter.configs').setup {
 	highlight = {
 		enable = true,
 
-    -- ISSUE: Breaks some text highlighting
-    disable = { "markdown", "latex", "html" },
+    -- ISSUE: Markdown Breaks some text highlighting
+    -- For some reason, php has better syntax highlighting without TS,
+    -- might be an issue for my colorscheme though
+    disable = { "markdown", "latex", "html", 'php' },
 		additional_vim_regex_highlighting = false,
 	},
 

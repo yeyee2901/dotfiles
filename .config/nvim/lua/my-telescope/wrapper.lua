@@ -150,5 +150,42 @@ M.tele_snippets = function ()
   }))
 end
 
+M.tele_emoji_all = function ()
+  builtin.symbols(themes[default_theme]({
+    prompt_title = "< Available Snippets >",
+    sources = {
+      'emoji',
+      'gitmoji',
+      'kaomoji'
+    }
+  }))
+end
+
+M.tele_gitmoji = function ()
+  builtin.symbols(themes[default_theme]({
+    prompt_title = "< Available Snippets >",
+    sources = {
+      'gitmoji'
+    }
+  }))
+end
+
+M.tele_emoji = function ()
+  builtin.symbols(themes[default_theme]({
+    prompt_title = "< Available Snippets >",
+    sources = {
+      'emoji'
+    }
+  }))
+end
+
+M.tele_kaomoji = function ()
+  builtin.symbols(themes[default_theme]({
+    prompt_title = "< Available Snippets >",
+    sources = {
+      'kaomoji'
+    }
+  }))
+end
 
 return M

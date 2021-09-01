@@ -22,7 +22,4 @@ augroup VimWikiGroup
     autocmd Filetype vimwiki set tabstop=2
     autocmd Filetype vimwiki set softtabstop=2
     autocmd Filetype vimwiki set shiftwidth=2
-
-    " Vimwiki sometimes override the filetype
-    autocmd BufWinEnter *.md set ft=markdown
 augroup END
