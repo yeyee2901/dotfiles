@@ -96,17 +96,11 @@ lsp_saga.init_lsp_saga{
   border_style = "round",
 }
 
--- for Ultisnips integration
+-- for enable capabilities from 'nvim_lsp' source
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-capabilities.textDocument.completion.completionItem.snippetSupport = true
--- capabilities.textDocument.completion.completionItem.resolveSupport = {
---   properties = {
---     'documentation',
---     'detail',
---     'additionalTextEdits',
---   }
--- }
+capabilities.snippetSupport = true
+-- print(vim.inspect(capabilities))
 
 -- Clone from git, then run 'cargo xtask install --server'
 require('lspconfig').rust_analyzer.setup{
@@ -162,7 +156,7 @@ require('lspconfig').cssls.setup{
   capabilities = capabilities
 }
 
--- npm i -g typescript typescript typescript-language-server
+-- npm i -g typescript typescript-language-server
 require('lspconfig').tsserver.setup{
   on_attach = LSP_signature_setup.on_attach,
   capabilities = capabilities

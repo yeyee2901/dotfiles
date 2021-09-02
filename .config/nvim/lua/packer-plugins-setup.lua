@@ -61,7 +61,8 @@ require('packer').startup(function()
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
-      'onsails/lspkind-nvim',
+      'quangnguyen30192/cmp-nvim-ultisnips',
+      'onsails/lspkind-nvim', -- for labels & icons
     }
   }
 
@@ -101,7 +102,6 @@ require('packer').startup(function()
 
   -- Note taking
   use {'vimwiki/vimwiki'}
-
 
 end)
 

@@ -202,6 +202,6 @@ end
 
 
 -- Vim colorizer
--- require('colorizer').setup()
+require('colorizer').setup()
 
 return M

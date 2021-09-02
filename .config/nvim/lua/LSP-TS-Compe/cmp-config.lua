@@ -1,9 +1,11 @@
 local cmp = require('cmp')
-local types = require('cmp.types')
+-- local types = require('cmp.types')
+
+vim.o.completeopt = 'menuone,noselect'
 
 cmp.setup({
   completion = {
-    completeopt = 'menu,menuone,noselect',
+    completeopt = vim.o.completeopt,
   },
 
   mapping = {
@@ -11,29 +13,29 @@ cmp.setup({
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-c>'] = cmp.mapping.complete(),
     ['<C-q>'] = cmp.mapping.close(),
+    ['<C-c>'] = cmp.mapping.complete(), -- open completion menu
 
-    -- ISSUE: Weird Behavior
-    -- ['<Tab>'] = cmp.mapping.confirm({
-    --   behavior = cmp.ConfirmBehavior.Replace,
-    --   select = true,
-    -- })
-  },
-
-  confirmation = {
-    default_behavior = types.cmp.ConfirmBehavior.Insert,
+    -- SOLVED: Weird Behavior with ConfirmBehavior
+    -- Harus config 'completion source' untuk Ultisnips
+    -- REPO: 'quangnguyen30192/cmp-nvim-ultisnips'
+    ['<Tab>'] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Insert,
+      select = true,
+    })
   },
 
   -- Autocomplete source
   sources = {
     -- { name = 'buffer' },
     { name = 'path' },
-    { name = 'nvim_lsp' }
+    { name = 'nvim_lsp' },
+    { name = 'ultisnips' },
   },
 
   snippet = {
-    expand = function()
+    expand = function(args)
+      vim.fn['UltiSnips#Anon'](args.body)
     end,
   },
 
