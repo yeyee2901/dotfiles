@@ -1,0 +1,25 @@
+{
+  "name": "lsp-install",
+  "version": "1.0.0",
+  "description": "My LSP install script.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bash-language-server": "^2.0.0",
+    "diagnostic-languageserver": "^1.13.0",
+    "install": "^0.13.0",
+    "intelephense": "^1.7.1",
+    "live-server": "^1.2.1",
+    "pyright": "^1.1.165",
+    "serve": "^12.0.0",
+    "sql-language-server": "^0.12.0",
+    "typescript": "^4.4.2",
+    "typescript-language-server": "^0.6.2",
+    "vim-language-server": "^2.2.5",
+    "vscode-langservers-extracted": "^2.4.0"
+  }
+}
