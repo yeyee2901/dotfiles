@@ -110,29 +110,23 @@ require('lspconfig').rust_analyzer.setup{
 }
 
 -- sudo apt install clangd / ccls
--- require('lspconfig').clangd.setup{
---   filetypes = { "c", "cpp", "objc", "objcpp" },
---   on_attach = LSP_signature_setup.on_attach,
---   capabilities = snippet_enable,
--- }
-
 require('lspconfig').ccls.setup{
   filetypes = { "c", "cpp", "objc", "objcpp" },
   on_attach = LSP_signature_setup.on_attach,
   capabilities = capabilities,
 }
 
--- sudo npm install -g vim-language-server
+-- npm install -g vim-language-server
 require('lspconfig').vimls.setup(LSP_signature_setup)
 
--- sudo npm install -g pyright
+-- npm install -g pyright
 require('lspconfig').pyright.setup{
   filetypes = { "python" },
   on_attach = LSP_signature_setup.on_attach,
   capabilities = capabilities,
 }
 
--- sudo npm install -g bash-language-server
+-- npm install -g bash-language-server
 require('lspconfig').bashls.setup{
   filetypes = {'sh', 'zsh'},
   on_attach = LSP_signature_setup.on_attach,

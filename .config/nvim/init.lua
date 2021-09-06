@@ -48,3 +48,6 @@ require('themes.my-themes').set_gruvbox_material()
 -- Currently, no API for autocommand & defining command
 vim.cmd('source ~/.config/nvim/autocmds.vim')
 vim.cmd('source ~/.config/nvim/LaTeX/LaTeX_comamands.vim')
+
+-- User defined commands
+vim.cmd('source ~/.config/nvim/commands.vim')

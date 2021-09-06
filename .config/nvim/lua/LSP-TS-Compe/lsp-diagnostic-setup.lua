@@ -1,5 +1,5 @@
 local default_settings = {
-  virtual_text = false,
+  virtual_text = true,
   underline = true,
   signs = true,
 }

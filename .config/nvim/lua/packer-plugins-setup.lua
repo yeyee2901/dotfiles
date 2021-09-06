@@ -103,8 +103,11 @@ require('packer').startup(function()
   -- Note taking
   use {'vimwiki/vimwiki'}
 
+  -- Black Python Formatter
+
 end)
 
 if new_install then
   vim.cmd('PackerInstall')
 end
+

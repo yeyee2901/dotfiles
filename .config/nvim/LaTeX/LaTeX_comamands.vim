@@ -1,4 +1,3 @@
-
 command! TeXmake
             \ !tectonic --synctex --keep-logs --keep-intermediates %
 command! TeXbib !bibtex *.aux 

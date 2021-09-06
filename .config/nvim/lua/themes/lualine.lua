@@ -48,7 +48,7 @@ M.setup_lualine = function(theme)
           },
         },
         lualine_c = {
-          { 'filename', path = 0, },
+          { 'filename', path = 1, },
           { 'diagnostics',
             sources = {'nvim_lsp'},
             symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '},
