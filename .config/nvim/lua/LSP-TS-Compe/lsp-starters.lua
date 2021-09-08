@@ -162,12 +162,6 @@ require('lspconfig').intelephense.setup{
   capabilities = capabilities
 }
 
--- npm i -g sql-language-server
-require('lspconfig').sqlls.setup{
-  on_attach = LSP_signature_setup.on_attach,
-  capabilities = capabilities
-}
-
 -- cargo install tectonic (for compiling)
 -- cargo install --git https://github.com/latex-lsp/texlab.git --locked (for language server)
 require('lspconfig').texlab.setup{

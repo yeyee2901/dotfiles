@@ -125,3 +125,29 @@ DIODA=~/Pictures/Dio.png
 # set by system   #
 ###################
 alias luamake=/home/yeyee2901/bin/lua-language-server/3rd/luamake/luamake
+
+
+
+############################################
+# ░░░█▀█░█▀█░█▀█░█▀▀░█▀█░█▀█░█▀▄░█▀█░░     #
+# ░░░█▀█░█░█░█▀█░█░░░█░█░█░█░█░█░█▀█░░     #
+# ░░░▀░▀░▀░▀░▀░▀░▀▀▀░▀▀▀░▀░▀░▀▀░░▀░▀░░     #
+############################################
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/yeyee2901/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/yeyee2901/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/yeyee2901/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/yeyee2901/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# aliases
+alias conda-base="source $HOME/anaconda3/bin/activate"
+alias anaconda-navigator="$HOME/anaconda3/bin/anaconda-navigator"

@@ -21,5 +21,5 @@ sudo apt install ccls
 pip install cmake-language-server
 
 # Language Servers from Rust Crates
-cargo install tectonic rust_analyzer
-cargo install --git https://github.com/latex-lsp/texlab.git --locked
+# cargo install tectonic rust_analyzer
+# cargo install --git https://github.com/latex-lsp/texlab.git --locked
