@@ -26,7 +26,7 @@ export PATH=$PATH:$HOME/bin:/usr/local/bin:$HOME/.config/nvim/plugged/:$HOME/.lo
 export ZSH=$HOME/.oh-my-zsh
 
 # awesomepanda, af-magic, amuse
-ZSH_THEME="awesomepanda"
+ZSH_THEME="amuse"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
