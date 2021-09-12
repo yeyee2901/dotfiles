@@ -148,6 +148,13 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+###########################
+#░░░█▀▀░█▄█░█▀█░█▀▀░█▀▀░░ # 
+#░░░█▀▀░█░█░█▀█░█░░░▀▀█░░ # 
+#░░░▀▀▀░▀░▀░▀░▀░▀▀▀░▀▀▀░░ # 
+###########################
+export PATH=$PATH:$HOME/.emacs.d/bin/
+
 # aliases
 alias conda-base="source $HOME/anaconda3/bin/activate"
 alias anaconda-navigator="$HOME/anaconda3/bin/anaconda-navigator"
