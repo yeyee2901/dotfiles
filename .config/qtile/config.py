@@ -8,39 +8,21 @@ from libqtile.utils import guess_terminal
 mod = "mod4"
 terminal = guess_terminal()
 
-WALLPAPER = "~/Pictures/pop/gruvbox2.jpg"
+WALLPAPER = "~/Pictures/pop/nord_circuit.png"
 WALLPAPER_MODE = "fill"
 
 # Colorscheme taken from: https://github.com/morhetz/gruvbox
-gruvbox = {
-    "bg"        : "#282828",
-    "red"       : "#cc241d",
-    "green"     : "#98971a",
-    "yellow"    : "#d79921",
-    "blue"      : "#458588",
-    "purple"    : "#b16286",
-    "aqua"      : "#689d6a",
-    "gray"      : "#a89984",
-    "orange"    : "#d65d0e",
-    
-    "red2"      : "#fb4934",
-    "green2"    : "#b8bb26",
-    "yellow2"   : "#fabd2f",
-    "blue2"     : "#83a598",
-    "purple2"   : "#d3869b",
-    "aqua2"     : "#8ec07c",
-    "gray2"     : "#928374",
-    "orange2"   : "#fe8019",
+nord = {
+    "white" : "#E4E4E4",
+    "bg" : "#454545",
+    "frost" : [
+        "#5e81ac",
+        "#81a1c1",
+        "#88c0d0",
+        "#8fbcbb"
+    ]
 
-    "fg"        : "#ebdbb2",
-    "bg0_h"     : "#1d2021",
-    "bg0"       : "#282828",
-    "bg1"       : "#3c3836",
-    "bg2"       : "#504945",
-    "bg3"       : "#665c54",
-    "bg4"       : "#7c6f64",
 }
-
 
 #### MAPPINGS -----------------------------------------------------
 keys = [
@@ -56,7 +38,6 @@ keys = [
         lazy.to_screen(1),
         desc="Switch focus on Screen 1"
     ),
-
 
     # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
@@ -90,12 +71,14 @@ keys = [
     # Reset window size
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
 
-
     # Toggle between splitting / stacking windows
     # Windows stacked will still exist (kinda like maximizing)
     Key([mod, "shift"], "Return", lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack"),
 
+    # File Manager
+    Key([mod], "f", lazy.spawn("pcmanfm"), desc="Launch File Manager"),
+    
     # Terminal = Super + T
     Key([mod], "t", lazy.spawn(terminal), desc="Launch terminal"),
 
@@ -138,12 +121,12 @@ for i in groups:
 layouts = [
     layout.Max(),
     layout.Columns(
-        border_focus= gruvbox["aqua"], 
+        border_focus= nord["bg"], 
         border_width=2,
         margin = 4
     ),
     layout.Floating(
-        border_focus =gruvbox["aqua"],
+        border_focus = nord["bg"],
         border_width = 2
     )
 ]
@@ -157,9 +140,10 @@ layouts = [
 # SCREEN SECTION  -------------------------------------------
 widget_defaults = dict(
     font='JetBrainsMonoMedium NF',
-    fontsize=15,
+    fontsize=12,
     padding=5,
 )
+
 extension_defaults = widget_defaults.copy()
 
 # Separator
@@ -175,165 +159,135 @@ def separator_widget(arrow_right: bool, bg: str, fg: str):
 
 
 screens = [
-    Screen(
-
-        # WuALLPAPER -------------------------------
-        wallpaper = WALLPAPER,
-        wallpaper_mode= WALLPAPER_MODE,
-
-        top=bar.Bar(
-            [
-                widget.Spacer(length=5, background=gruvbox["bg"]),
-
-                # TABLE FLIP ----------------------
-                widget.TextBox(
-                    "(╯°□°）╯︵ ┻━┻ ",
-                    background=gruvbox["green"],
-                    foreground=gruvbox["bg"]
-                ),
-                separator_widget(True, fg=gruvbox["green"], bg=gruvbox["bg3"]),
-
-
-                # GROUPS LIST --------------------
-                widget.GroupBox(background=gruvbox["bg3"],
-                                foreground=gruvbox["fg"],
-                                highlight_method="block",
-                ),
-                separator_widget(True, fg=gruvbox["bg3"], bg=gruvbox["bg2"]),
-
-                # SCREEN FOCUS POSITION ----------
-                widget.CurrentScreen(
-                    background=gruvbox["bg2"],
-                    foreground=gruvbox["bg4"]
-                ),
-                separator_widget(True, fg=gruvbox["bg2"], bg=gruvbox["bg"]),
-
-                # WINDOW NAME ---------------------
-                widget.WindowName(
-                    background=gruvbox["bg"],
-                    foreground=gruvbox["fg"],
-                    max_chars=15,
-                    padding=10
-                ),
-
-                # LAUNCHER ------------------------
-                widget.Spacer(length=1, background=gruvbox["bg"]),
-                widget.Prompt(
-                    background=gruvbox["bg"],
-                    foreground=gruvbox["orange"],
-                    fontsize=16,
-                ),
-
-                widget.Spacer(background=gruvbox["bg"]),
-
-                # LAYOUT INDICATOR
-                separator_widget(False, bg=gruvbox["bg"], fg=gruvbox["yellow"]),
-                widget.CurrentLayout(
-                    background=gruvbox["yellow"],
-                    foreground=gruvbox["bg"]
-                ),
-
-                # DATE --------------------------
-                separator_widget(False, bg=gruvbox["yellow"], fg=gruvbox["blue2"]),
-                widget.Clock(
-                    background=gruvbox["blue2"], 
-                    foreground=gruvbox["bg"], 
-                    format='%Y-%m-%d'),
-
-                # CLOCK -------------------------
-                separator_widget(False, bg=gruvbox["blue2"], fg=gruvbox["purple2"]),
-                widget.Clock(
-                    background=gruvbox["purple2"], 
-                    foreground=gruvbox["bg"], 
-                    format='%I:%M %p'),
-
-                separator_widget(False, bg=gruvbox["purple2"], fg=gruvbox["green"]),
-                widget.Memory(
-                    background=gruvbox["green"],
-                    foreground=gruvbox["bg"],
-                )
-            ],
-            24,
-        ),
-    ),
-
+    # SCREEN 1 ------------------------------------
     Screen(
 
         # WALLPAPER -------------------------------
         wallpaper = WALLPAPER,
         wallpaper_mode= WALLPAPER_MODE,
 
+        bottom=bar.Bar(
+            [
+                widget.WindowName(
+                    background = nord["white"],
+                    foreground = nord["bg"],
+                    format = "{name}"
+                ),
+                separator_widget(True, nord["bg"], nord["white"]),
+                widget.Spacer(background = nord["bg"])
+            ],
+            24,
+            opacity = 0.1
+        ),
+
         top=bar.Bar(
             [
-                widget.Spacer(length=5, background=gruvbox["bg"]),
+                # LEFT SIDE
+                widget.Spacer(length=5, background = nord["frost"][0]),
 
-                # TABLE FLIP ----------------------
+                # MY NAME
                 widget.TextBox(
-                    "(╯°□°）╯︵ ┻━┻ ",
-                    background=gruvbox["green"],
-                    foreground=gruvbox["bg"]
+                    "💻 yeyee2901",
+                    background = nord["frost"][0],
+                    foreground = nord["bg"]
                 ),
-                separator_widget(True, fg=gruvbox["green"], bg=gruvbox["bg3"]),
 
-
-                # GROUPS LIST --------------------
-                widget.GroupBox(background=gruvbox["bg3"],
-                                foreground=gruvbox["fg"],
-                                highlight_method="block",
+                # WINDOW GROUPS
+                separator_widget(True, nord["frost"][1], nord["frost"][0]),
+                widget.GroupBox(
+                    fontsize = 10,
+                    highlight_method = "block",
+                    background = nord["frost"][1],
+                    foreground = nord["bg"],
                 ),
-                separator_widget(True, fg=gruvbox["bg3"], bg=gruvbox["bg2"]),
 
-                # SCREEN FOCUS POSITION ----------
+                # ACTIVE SCREEN
+                separator_widget(True, nord["frost"][2], nord["frost"][1]),
                 widget.CurrentScreen(
-                    background=gruvbox["bg2"],
-                    foreground=gruvbox["bg4"]
-                ),
-                separator_widget(True, fg=gruvbox["bg2"], bg=gruvbox["bg"]),
-
-                # WINDOW NAME ---------------------
-                widget.WindowName(
-                    background=gruvbox["bg"],
-                    foreground=gruvbox["fg"],
-                    max_chars=15,
-                    padding=10
+                    background = nord["frost"][2],
+                    inactive_color = nord["frost"][2],
+                    active_color = nord["bg"],
                 ),
 
-                # LAUNCHER ------------------------
-                widget.Spacer(length=1, background=gruvbox["bg"]),
-                widget.Prompt(
-                    background=gruvbox["bg"],
-                    foreground=gruvbox["orange"],
-                    fontsize=16,
-                ),
-
-                widget.Spacer(background=gruvbox["bg"]),
-
-                # LAYOUT INDICATOR
-                separator_widget(False, bg=gruvbox["bg"], fg=gruvbox["yellow"]),
+                # CURRENT LAYOUT
+                separator_widget(True, nord["white"], nord["frost"][3]),
                 widget.CurrentLayout(
-                    background=gruvbox["yellow"],
-                    foreground=gruvbox["bg"]
+                    background = nord["white"],
+                    foreground = nord["bg"]
                 ),
 
-                # DATE --------------------------
-                separator_widget(False, bg=gruvbox["yellow"], fg=gruvbox["blue2"]),
-                widget.Clock(
-                    background=gruvbox["blue2"], 
-                    foreground=gruvbox["bg"], 
-                    format='%Y-%m-%d'),
+                # PROMPT
+                widget.Prompt(
+                    background = nord["white"],
+                    foreground = nord["bg"],
+                ),
 
-                # CLOCK -------------------------
-                separator_widget(False, bg=gruvbox["blue2"], fg=gruvbox["purple2"]),
-                widget.Clock(
-                    background=gruvbox["purple2"], 
-                    foreground=gruvbox["bg"], 
-                    format='%I:%M %p'),
+                widget.Spacer(1, background = nord["white"]),
 
-                separator_widget(False, bg=gruvbox["purple2"], fg=gruvbox["green"]),
-                widget.Memory(
-                    background=gruvbox["green"],
-                    foreground=gruvbox["bg"],
-                )
+                separator_widget(True, nord["bg"], nord["white"]),
+
+                # RIGHT SIDE
+                widget.Spacer(background = nord["bg"]),
+
+                # MOC - music player
+                separator_widget(False, nord["bg"], nord["white"]),
+                widget.Moc(
+                    background = nord["white"],
+                    foreground = nord["bg"],
+                    play_color = nord["bg"],
+                    noplay_color = nord["bg"],
+                ),
+
+                # DATE
+                separator_widget(False, nord["white"], nord["frost"][2]),
+                widget.Clock(
+                    background = nord["frost"][2],
+                    foreground = nord["bg"],
+                    format = "%d/%m/%Y"
+                ),
+
+                # CLOCK
+                separator_widget(False, nord["frost"][2], nord["frost"][1]),
+                widget.Clock(
+                    background = nord["frost"][1],
+                    foreground = nord["bg"],
+                ),
+
+                # WIFI INDICATOR
+                separator_widget(False, nord["frost"][1], nord["frost"][0]),
+                widget.Wlan(
+                    interface = "wlo1",
+                    fontsize = 14,
+                    format = "WLAN: {essid} ",
+                    background = nord["frost"][0],
+                    foreground = nord["bg"],
+                ),
+
+            ],
+            24,
+            margin = 4,
+            background = nord["bg"],
+        ),
+    ),
+
+    # SCREEN 2 ------------------------------------
+    Screen(
+
+        # WALLPAPER -------------------------------
+        wallpaper = WALLPAPER,
+        wallpaper_mode= WALLPAPER_MODE,
+
+        # BOTTOM BAR ------------------------------
+        bottom=bar.Bar(
+            [
+            ],
+            24,
+            opacity = 1
+        ),
+
+        # TOP BAR ---------------------------------
+        top=bar.Bar(
+            [
             ],
             24,
         ),
@@ -364,7 +318,7 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='ssh-askpass'),  # ssh-askpass
     Match(title='branchdialog'),  # gitk
     Match(title='pinentry'),  # GPG key password entry
-    Match(title="gnome-calculator"),
+    Match(wm_class="gnome-calculator"),
 ])
 
 auto_fullscreen = True

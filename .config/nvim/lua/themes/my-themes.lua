@@ -200,6 +200,23 @@ M.set_gruvbox_material = function ()
 end
 
 
+-- NORD THEME
+M.set_nord = function()
+  local opts = {
+    nord_contrast = false,
+    nord_borders = true,
+    nord_disable_background = true,
+    nord_italic = true,
+  }
+
+  for option,value in pairs(opts) do
+    vim.g[option] = value
+  end
+
+  require('nord').set()
+  lualine.setup_lualine('nord')
+end
+
 
 -- Vim colorizer
 require('colorizer').setup()

@@ -42,7 +42,8 @@ require('keymaps')
 -- require('themes.my-themes').set_gruvbuddy()
 -- require('themes.my-themes').set_ayu("mirage")
 -- require('themes.my-themes').set_monokai()
-require('themes.my-themes').set_gruvbox_material()
+-- require('themes.my-themes').set_gruvbox_material()
+require('themes.my-themes').set_nord()
 
 -- Temporary for LaTeX stuffs
 -- Currently, no API for autocommand & defining command

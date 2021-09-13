@@ -40,6 +40,9 @@ require('packer').startup(function()
   -- Still testing, but apparently it has tree-sitter support
   use {'sainnhe/gruvbox-material'}
 
+  -- Nord color pallete
+  use {'shaunsingh/nord.nvim'}
+
   -- Status line
   use {'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-tree.lua'} }
 
