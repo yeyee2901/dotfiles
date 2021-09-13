@@ -19,7 +19,8 @@ nord = {
         "#5e81ac",
         "#81a1c1",
         "#88c0d0",
-        "#8fbcbb"
+        "#8fbcbb",
+        "#E2C17D",
     ]
 
 }
@@ -168,16 +169,36 @@ screens = [
 
         bottom=bar.Bar(
             [
+                # LEFT SIDE
+                # CURRENT WINDOW NAME
                 widget.WindowName(
                     background = nord["white"],
                     foreground = nord["bg"],
                     format = "{name}"
                 ),
                 separator_widget(True, nord["bg"], nord["white"]),
-                widget.Spacer(background = nord["bg"])
+
+                
+                widget.Spacer(background = nord["bg"]),
+
+                # RIGHT SIDE
+                # CPU
+                widget.CPU(
+                    foreground = nord["frost"][4],
+                    fontsize = 16
+                ),
+
+                # MEMORY
+                widget.Memory(
+                    foreground = nord["frost"][4],
+                    fontsize = 16,
+                    format = " RAM:{MemUsed: .0f}{mm}/{MemTotal: .0f}{mm}"
+                )
+
             ],
             24,
-            opacity = 0.1
+            margin = 4,
+            background = nord["bg"]
         ),
 
         top=bar.Bar(
@@ -189,7 +210,7 @@ screens = [
                 widget.TextBox(
                     "💻 yeyee2901",
                     background = nord["frost"][0],
-                    foreground = nord["bg"]
+                    foreground = nord["white"]
                 ),
 
                 # WINDOW GROUPS
@@ -210,7 +231,7 @@ screens = [
                 ),
 
                 # CURRENT LAYOUT
-                separator_widget(True, nord["white"], nord["frost"][3]),
+                separator_widget(True, nord["white"], nord["frost"][2]),
                 widget.CurrentLayout(
                     background = nord["white"],
                     foreground = nord["bg"]
@@ -260,7 +281,7 @@ screens = [
                     fontsize = 14,
                     format = "WLAN: {essid} ",
                     background = nord["frost"][0],
-                    foreground = nord["bg"],
+                    foreground = nord["white"],
                 ),
 
             ],
@@ -277,19 +298,127 @@ screens = [
         wallpaper = WALLPAPER,
         wallpaper_mode= WALLPAPER_MODE,
 
-        # BOTTOM BAR ------------------------------
         bottom=bar.Bar(
             [
+                # LEFT SIDE
+                # CURRENT WINDOW NAME
+                widget.WindowName(
+                    background = nord["white"],
+                    foreground = nord["bg"],
+                    format = "{name}"
+                ),
+                separator_widget(True, nord["bg"], nord["white"]),
+
+                
+                widget.Spacer(background = nord["bg"]),
+
+                # RIGHT SIDE
+                # CPU
+                widget.CPU(
+                    foreground = nord["frost"][4],
+                    fontsize = 16
+                ),
+
+                # MEMORY
+                widget.Memory(
+                    foreground = nord["frost"][4],
+                    fontsize = 16,
+                    format = " RAM:{MemUsed: .0f}{mm}/{MemTotal: .0f}{mm}"
+                )
+
             ],
             24,
-            opacity = 1
+            margin = 4,
+            background = nord["bg"]
         ),
 
-        # TOP BAR ---------------------------------
         top=bar.Bar(
             [
+                # LEFT SIDE
+                widget.Spacer(length=5, background = nord["frost"][0]),
+
+                # MY NAME
+                widget.TextBox(
+                    "💻 yeyee2901",
+                    background = nord["frost"][0],
+                    foreground = nord["white"]
+                ),
+
+                # WINDOW GROUPS
+                separator_widget(True, nord["frost"][1], nord["frost"][0]),
+                widget.GroupBox(
+                    fontsize = 10,
+                    highlight_method = "block",
+                    background = nord["frost"][1],
+                    foreground = nord["bg"],
+                ),
+
+                # ACTIVE SCREEN
+                separator_widget(True, nord["frost"][2], nord["frost"][1]),
+                widget.CurrentScreen(
+                    background = nord["frost"][2],
+                    inactive_color = nord["frost"][2],
+                    active_color = nord["bg"],
+                ),
+
+                # CURRENT LAYOUT
+                separator_widget(True, nord["white"], nord["frost"][2]),
+                widget.CurrentLayout(
+                    background = nord["white"],
+                    foreground = nord["bg"]
+                ),
+
+                # PROMPT
+                widget.Prompt(
+                    background = nord["white"],
+                    foreground = nord["bg"],
+                ),
+
+                widget.Spacer(1, background = nord["white"]),
+
+                separator_widget(True, nord["bg"], nord["white"]),
+
+                # RIGHT SIDE
+                widget.Spacer(background = nord["bg"]),
+
+                # MOC - music player
+                separator_widget(False, nord["bg"], nord["white"]),
+                widget.Moc(
+                    background = nord["white"],
+                    foreground = nord["bg"],
+                    play_color = nord["bg"],
+                    noplay_color = nord["bg"],
+                ),
+
+                # DATE
+                separator_widget(False, nord["white"], nord["frost"][2]),
+                widget.Clock(
+                    background = nord["frost"][2],
+                    foreground = nord["bg"],
+                    format = "%d/%m/%Y"
+                ),
+
+                # CLOCK
+                separator_widget(False, nord["frost"][2], nord["frost"][1]),
+                widget.Clock(
+                    background = nord["frost"][1],
+                    foreground = nord["bg"],
+                ),
+
+                # WIFI INDICATOR
+                separator_widget(False, nord["frost"][1], nord["frost"][0]),
+                widget.Wlan(
+                    interface = "wlo1",
+                    fontsize = 14,
+                    format = "WLAN: {essid} ",
+                    background = nord["frost"][0],
+                    foreground = nord["white"],
+                ),
+
             ],
             24,
+            margin = 4,
+            background = nord["bg"],
         ),
     ),
 ]
