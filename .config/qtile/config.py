@@ -1,3 +1,14 @@
+#          _     _   _         
+#         | |   (_) | |        
+#   __ _  | |_   _  | |   ___  
+#  / _` | | __| | | | |  / _ \ 
+# | (_| | | |_  | | | | |  __/ 
+#  \__, |  \__| |_| |_|  \___| 
+#     | |                      
+#     |_|                      
+#
+# yeyee2901 - 14 Sept 2021
+
 from typing import List  # noqa: F401
 
 from libqtile import bar, layout, widget
@@ -11,7 +22,6 @@ terminal = guess_terminal()
 WALLPAPER = "~/Pictures/pop/nord_circuit.png"
 WALLPAPER_MODE = "fill"
 
-# Colorscheme taken from: https://github.com/morhetz/gruvbox
 nord = {
     "white" : "#E4E4E4",
     "bg" : "#454545",
@@ -21,6 +31,7 @@ nord = {
         "#88c0d0",
         "#8fbcbb",
         "#E2C17D",
+        "#AF87AF"
     ]
 
 }
@@ -122,13 +133,13 @@ for i in groups:
 layouts = [
     layout.Max(),
     layout.Columns(
-        border_focus= nord["bg"], 
-        border_width=2,
+        border_focus = nord["frost"][4], 
+        border_width = 4,
         margin = 4
     ),
     layout.Floating(
-        border_focus = nord["bg"],
-        border_width = 2
+        border_focus = nord["frost"][4],
+        border_width = 4
     )
 ]
 
@@ -167,16 +178,17 @@ screens = [
         wallpaper = WALLPAPER,
         wallpaper_mode= WALLPAPER_MODE,
 
-        bottom=bar.Bar(
+        bottom = bar.Bar(
             [
                 # LEFT SIDE
                 # CURRENT WINDOW NAME
                 widget.WindowName(
-                    background = nord["white"],
-                    foreground = nord["bg"],
-                    format = "{name}"
+                    background = nord["frost"][0],
+                    foreground = "#121212",
+                    format = "{name}",
+                    fontsize = 14
                 ),
-                separator_widget(True, nord["bg"], nord["white"]),
+                separator_widget(True, nord["bg"], nord["frost"][0]),
 
                 
                 widget.Spacer(background = nord["bg"]),
@@ -423,6 +435,8 @@ screens = [
     ),
 ]
 
+
+# MOUSE BINDINGS --------------------------------------
 # Drag floating layouts.
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(),
