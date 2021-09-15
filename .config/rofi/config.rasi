@@ -1,0 +1,22 @@
+/*
+                  __   _  
+  _ __    ___    / _| (_) 
+ | '__|  / _ \  | |_  | | 
+ | |    | (_) | |  _| | | 
+ |_|     \___/  |_|   |_| 
+                          
+ Config file --
+ @yeyee2901 - 2021
+
+*/
+
+configuration {
+	modi: "window,run";
+	font: "mono 12";
+	show-icons: true;
+	terminal: "gnome-terminal";
+	run-command: "{cmd}";
+	fullscreen: false;
+}
+
+@import "theme.rasi"

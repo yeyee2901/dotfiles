@@ -103,9 +103,10 @@ keys = [
     # Logout : Super + Ctrl + q
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
 
-    # Launch program
-    Key([mod], "r", lazy.spawncmd(),
-        desc="Spawn a command using a prompt widget"), 
+    # Launcher using rofi
+    Key([mod], "Return", lazy.spawn("rofi -sidebar-mode -show window"),
+        desc="Spawn a command using a prompt widget"
+    ), 
 
     # Take screenshots
     Key([mod], "Print", 
@@ -135,7 +136,7 @@ layouts = [
     layout.Columns(
         border_focus = nord["frost"][4], 
         border_width = 4,
-        margin = 4
+        margin = 10
     ),
     layout.Floating(
         border_focus = nord["frost"][4],
@@ -209,7 +210,7 @@ screens = [
 
             ],
             24,
-            margin = 4,
+            margin = 0,
             background = nord["bg"]
         ),
 
@@ -298,7 +299,7 @@ screens = [
 
             ],
             24,
-            margin = 4,
+            margin = 0,
             background = nord["bg"],
         ),
     ),
@@ -340,7 +341,7 @@ screens = [
 
             ],
             24,
-            margin = 4,
+            margin = 0,
             background = nord["bg"]
         ),
 
@@ -429,7 +430,7 @@ screens = [
 
             ],
             24,
-            margin = 4,
+            margin = 0,
             background = nord["bg"],
         ),
     ),
