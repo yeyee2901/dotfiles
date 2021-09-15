@@ -19,4 +19,4 @@ configuration {
 	fullscreen: false;
 }
 
-@import "theme.rasi"
+@import "material.rasi"

@@ -31,7 +31,8 @@ nord = {
         "#88c0d0",
         "#8fbcbb",
         "#E2C17D",
-        "#AF87AF"
+        "#AF87AF",
+        "#82AAFF"
     ]
 
 }
@@ -134,12 +135,12 @@ for i in groups:
 layouts = [
     layout.Max(),
     layout.Columns(
-        border_focus = nord["frost"][4], 
+        border_focus = nord["frost"][6], 
         border_width = 4,
         margin = 10
     ),
     layout.Floating(
-        border_focus = nord["frost"][4],
+        border_focus = nord["frost"][6],
         border_width = 4
     )
 ]
