@@ -97,7 +97,7 @@ FZF_DEFAULT_COMMAND='fzf'
 ###################
 # Header          #
 ###################
-figlet -f /usr/share/figlet/fonts/pagga.tlf "Pop-OS 21.04" | lolcat
+figlet -f /usr/share/figlet/fonts/Bear.flf "OOOO" | lolcat
 
 ###################
 # REMOTES         #
