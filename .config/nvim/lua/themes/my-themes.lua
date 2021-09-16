@@ -114,10 +114,12 @@ M.set_gruvbuddy = function ()
   vim.cmd('hi SignColumn guibg=none')
   vim.cmd('hi LineNr guibg=none')
   vim.cmd('hi Normal guibg=none')
+  vim.cmd('hi ColorColumn guibg=#555555')
+
+  -- Tabline
   vim.cmd('hi TabLineSel guibg=none')
   vim.cmd('hi TabLineFill guibg=none')
   vim.cmd('hi TabLine guibg=none')
-  vim.cmd('hi ColorColumn guibg=#555555')
 
 end
 
@@ -215,6 +217,11 @@ M.set_nord = function()
 
   require('nord').set()
   lualine.setup_lualine('nord')
+
+  -- Tabline color
+  vim.cmd('hi TabLineSel guibg=none')
+  vim.cmd('hi TabLineFill guibg=none')
+  vim.cmd('hi TabLine guibg=none')
 end
 
 
