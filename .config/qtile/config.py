@@ -27,6 +27,7 @@ WALLPAPER_MODE = "fill"
 nord = {
     "white" : "#E4E4E4",
     "bg" : "#454545",
+    "gray" : "#565656",
     "frost" : [
         "#5e81ac",
         "#81a1c1",
@@ -185,86 +186,68 @@ screens = [
         wallpaper = WALLPAPER,
         wallpaper_mode= WALLPAPER_MODE,
 
-        bottom = bar.Bar(
-            [
-                # LEFT SIDE
-                # CURRENT WINDOW NAME
-                widget.WindowName(
-                    background = nord["frost"][0],
-                    foreground = "#121212",
-                    format = "{name}",
-                    fontsize = 14
-                ),
-                separator_widget(True, nord["bg"], nord["frost"][0]),
+        # bottom = bar.Bar(
+        #     [
+        #         widget.CPU(
+        #             foreground = nord["frost"][4],
+        #             fontsize = 12
+        #         ),
 
-                
-                widget.Spacer(background = nord["bg"]),
+        #         # MEMORY
+        #         widget.Memory(
+        #             foreground = nord["frost"][4],
+        #             fontsize = 12,
+        #             format = " RAM:{MemUsed: .0f}{mm}/{MemTotal: .0f}{mm}"
+        #         )
 
-                # RIGHT SIDE
-                # CPU
-                widget.CPU(
-                    foreground = nord["frost"][4],
-                    fontsize = 16
-                ),
-
-                # MEMORY
-                widget.Memory(
-                    foreground = nord["frost"][4],
-                    fontsize = 16,
-                    format = " RAM:{MemUsed: .0f}{mm}/{MemTotal: .0f}{mm}"
-                )
-
-            ],
-            24,
-            margin = 0,
-            background = nord["bg"]
-        ),
+        #     ],
+        #     24,
+        #     margin = 0,
+        #     background = nord["bg"]
+        # ),
 
         top=bar.Bar(
             [
                 # LEFT SIDE
-                widget.Spacer(length=5, background = nord["frost"][0]),
+                # widget.Spacer(length=5, background = nord["frost"][0]),
 
-                # MY NAME
-                widget.TextBox(
-                    "💻 yeyee2901",
-                    background = nord["frost"][0],
-                    foreground = nord["white"]
-                ),
+                # # MY NAME
+                # widget.TextBox(
+                #     "💻 yeyee2901",
+                #     background = nord["frost"][0],
+                #     foreground = nord["white"]
+                # ),
 
                 # WINDOW GROUPS
-                separator_widget(True, nord["frost"][1], nord["frost"][0]),
+                # separator_widget(True, nord["frost"][1], nord["frost"][0]),
                 widget.GroupBox(
                     fontsize = 10,
                     highlight_method = "block",
-                    background = nord["frost"][1],
-                    foreground = nord["bg"],
+                    background = nord["frost"][0],
                 ),
+
+                # SYSTEM TRAY INFO
+                separator_widget(True, nord["gray"], nord["frost"][0]),
+                widget.Systray(
+                    background = nord["gray"]
+                ),
+                separator_widget(True, nord["bg"], nord["gray"]),
 
                 # ACTIVE SCREEN
-                separator_widget(True, nord["frost"][2], nord["frost"][1]),
-                widget.CurrentScreen(
-                    background = nord["frost"][2],
-                    inactive_color = nord["frost"][2],
-                    active_color = nord["bg"],
-                ),
+                # separator_widget(True, nord["frost"][2], nord["frost"][1]),
+                # widget.CurrentScreen(
+                #     background = nord["frost"][2],
+                #     inactive_color = nord["frost"][2],
+                #     active_color = nord["bg"],
+                # ),
 
                 # CURRENT LAYOUT
-                separator_widget(True, nord["white"], nord["frost"][2]),
-                widget.CurrentLayout(
-                    background = nord["white"],
-                    foreground = nord["bg"]
-                ),
-
-                # PROMPT
-                widget.Prompt(
-                    background = nord["white"],
-                    foreground = nord["bg"],
-                ),
-
-                widget.Spacer(1, background = nord["white"]),
-
-                separator_widget(True, nord["bg"], nord["white"]),
+                # separator_widget(True, nord["white"], nord["frost"][2]),
+                # widget.CurrentLayout(
+                #     background = nord["white"],
+                #     foreground = nord["bg"]
+                # ),
+                # separator_widget(True, nord["bg"], nord["white"]),
 
                 # RIGHT SIDE
                 widget.Spacer(background = nord["bg"]),
@@ -317,85 +300,82 @@ screens = [
         wallpaper = WALLPAPER,
         wallpaper_mode= WALLPAPER_MODE,
 
-        bottom=bar.Bar(
-            [
-                # LEFT SIDE
-                # CURRENT WINDOW NAME
-                widget.WindowName(
-                    background = nord["white"],
-                    foreground = nord["bg"],
-                    format = "{name}"
-                ),
-                separator_widget(True, nord["bg"], nord["white"]),
+        # bottom=bar.Bar(
+        #     [
+        #         # LEFT SIDE
+        #         # CURRENT WINDOW NAME
+        #         widget.WindowName(
+        #             background = nord["white"],
+        #             foreground = nord["bg"],
+        #             format = "{name}"
+        #         ),
+        #         separator_widget(True, nord["bg"], nord["white"]),
 
                 
-                widget.Spacer(background = nord["bg"]),
+        #         widget.Spacer(background = nord["bg"]),
 
-                # RIGHT SIDE
-                # CPU
-                widget.CPU(
-                    foreground = nord["frost"][4],
-                    fontsize = 16
-                ),
+        #         # RIGHT SIDE
+        #         # CPU
+        #         widget.CPU(
+        #             foreground = nord["frost"][4],
+        #             fontsize = 16
+        #         ),
 
-                # MEMORY
-                widget.Memory(
-                    foreground = nord["frost"][4],
-                    fontsize = 16,
-                    format = " RAM:{MemUsed: .0f}{mm}/{MemTotal: .0f}{mm}"
-                )
+        #         # MEMORY
+        #         widget.Memory(
+        #             foreground = nord["frost"][4],
+        #             fontsize = 16,
+        #             format = " RAM:{MemUsed: .0f}{mm}/{MemTotal: .0f}{mm}"
+        #         )
 
-            ],
-            24,
-            margin = 0,
-            background = nord["bg"]
-        ),
+        #     ],
+        #     24,
+        #     margin = 0,
+        #     background = nord["bg"]
+        # ),
 
         top=bar.Bar(
             [
                 # LEFT SIDE
-                widget.Spacer(length=5, background = nord["frost"][0]),
+                # widget.Spacer(length=5, background = nord["frost"][0]),
 
-                # MY NAME
-                widget.TextBox(
-                    "💻 yeyee2901",
-                    background = nord["frost"][0],
-                    foreground = nord["white"]
-                ),
+                # # MY NAME
+                # widget.TextBox(
+                #     "💻 yeyee2901",
+                #     background = nord["frost"][0],
+                #     foreground = nord["white"]
+                # ),
 
                 # WINDOW GROUPS
-                separator_widget(True, nord["frost"][1], nord["frost"][0]),
+                # separator_widget(True, nord["frost"][1], nord["frost"][0]),
                 widget.GroupBox(
                     fontsize = 10,
                     highlight_method = "block",
-                    background = nord["frost"][1],
-                    foreground = nord["bg"],
+                    background = nord["frost"][0],
                 ),
+
+                # SYSTEM TRAY INFO
+                separator_widget(True, nord["gray"], nord["frost"][0]),
+                widget.Systray(
+                    background = nord["gray"]
+                ),
+                separator_widget(True, nord["bg"], nord["gray"]),
 
                 # ACTIVE SCREEN
-                separator_widget(True, nord["frost"][2], nord["frost"][1]),
-                widget.CurrentScreen(
-                    background = nord["frost"][2],
-                    inactive_color = nord["frost"][2],
-                    active_color = nord["bg"],
-                ),
+                # separator_widget(True, nord["frost"][2], nord["frost"][1]),
+                # widget.CurrentScreen(
+                #     background = nord["frost"][2],
+                #     inactive_color = nord["frost"][2],
+                #     active_color = nord["bg"],
+                # ),
 
                 # CURRENT LAYOUT
-                separator_widget(True, nord["white"], nord["frost"][2]),
-                widget.CurrentLayout(
-                    background = nord["white"],
-                    foreground = nord["bg"]
-                ),
-
-                # PROMPT
-                widget.Prompt(
-                    background = nord["white"],
-                    foreground = nord["bg"],
-                ),
-
-                widget.Spacer(1, background = nord["white"]),
-
-                separator_widget(True, nord["bg"], nord["white"]),
+                # separator_widget(True, nord["white"], nord["frost"][2]),
+                # widget.CurrentLayout(
+                #     background = nord["white"],
+                #     foreground = nord["bg"]
+                # ),
+                # separator_widget(True, nord["bg"], nord["white"]),
 
                 # RIGHT SIDE
                 widget.Spacer(background = nord["bg"]),
