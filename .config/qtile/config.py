@@ -28,6 +28,7 @@ nord = {
     "white" : "#E4E4E4",
     "bg" : "#454545",
     "gray" : "#565656",
+    "urgent" : "#ff5656",
     "frost" : [
         "#5e81ac",
         "#81a1c1",
@@ -36,8 +37,7 @@ nord = {
         "#E2C17D",
         "#AF87AF",
         "#82AAFF"
-    ]
-
+    ],
 }
 
 
@@ -226,10 +226,15 @@ screens = [
                     background = nord["frost"][0],
                 ),
 
-                # SYSTEM TRAY INFO
+                # SYSTEM TRAY INFO & NOTIFICATION
                 separator_widget(True, nord["gray"], nord["frost"][0]),
                 widget.Systray(
                     background = nord["gray"]
+                ),
+                widget.Notify(
+                    background = nord["gray"],
+                    foreground_low = nord["frost"][4],
+                    foreground_urgent = nord["urgent"]
                 ),
                 separator_widget(True, nord["bg"], nord["gray"]),
 
@@ -276,16 +281,38 @@ screens = [
                     foreground = nord["bg"],
                 ),
 
-                # WIFI INDICATOR
+                # SYSTEMS INFO
+                #   arrow = ""
+                #   arrow = ""
                 separator_widget(False, nord["frost"][1], nord["frost"][0]),
-                widget.Wlan(
-                    interface = "wlo1",
-                    fontsize = 14,
-                    format = "WLAN: {essid} ",
+                widget.WidgetBox(
                     background = nord["frost"][0],
-                    foreground = nord["white"],
+                    foreground = nord["frost"][4],
+                    fontsize = 14,
+                    text_closed = "🖥️ System ",
+                    text_open = "(x)",
+                    widgets = [
+                        widget.Memory(
+                            format = " 💽 {MemUsed: .0f}{mm} |",
+                            fontsize = 14,
+                            background = nord["frost"][0],
+                            foreground = nord["white"],
+                        ),
+                        widget.CPU(
+                            format = "🖥️ {load_percent}% |",
+                            fontsize = 14,
+                            background = nord["frost"][0],
+                            foreground = nord["white"],
+                        ),
+                        widget.Wlan(
+                            interface = "wlo1",
+                            fontsize = 14,
+                            format = "📶 {essid} ",
+                            background = nord["frost"][0],
+                            foreground = nord["white"],
+                        ),
+                    ]
                 ),
-
             ],
             24,
             margin = 0,
