@@ -67,6 +67,7 @@ alias cat='bat'
 alias cls="clear ; la"
 alias sk='screenkey'
 alias r='. ranger'
+alias rm="rm -i"
 
 # TMUX aliases
 alias t='env TERM=screen-256color tmux'
