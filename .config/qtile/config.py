@@ -21,8 +21,8 @@ from libqtile.lazy import lazy
 mod = "mod4"
 terminal = "alacritty"
 
-WALLPAPER = "~/Pictures/pop/nord_circuit.png"
-WALLPAPER_MODE = "fill"
+WALLPAPER = "~/Pictures/pop/KR_Meteor.jpg"
+WALLPAPER_MODE = "stretch"
 
 nord = {
     "white" : "#E4E4E4",
@@ -116,23 +116,28 @@ keys = [
     ), 
 
     # Take screenshots
-    Key([mod], "Print", 
+    Key([], "Print", 
         lazy.spawn("gnome-screenshot -i"))
 ]
 
 
+#######################
+# GROUPS              #
+#######################
+groups = [
+    Group(name = "1", label = "BROWSE"),
+    Group(name = "2", label = "MEET"),
+    Group(name = "3", label = "TERMINAL"),
+    Group(name = "4", label = "CHAT"),
+    Group(name = "5", label = "MUSIC"),
+    Group(name = "6", label = "CONFIG"),
+    Group(name = "7", label = "OTHERS"),
+]
 
-groups = [Group(i) for i in "123456789"]
-
-for i in groups:
-    keys.extend([
-        Key([mod], i.name, lazy.group[i.name].toscreen(),
-            desc="Switch to group {}".format(i.name)),
-
-        # Move window to desired group: Super + shift + <group>
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),
-            desc="Switch to & move focused window to group {}".format(i.name)),
-    ])
+# Set the keymapping for group
+for group in groups:
+    keys.append(Key([mod], group.name, lazy.group[group.name].toscreen()))        # Switch to another group
+    keys.append(Key([mod, "shift"], group.name, lazy.window.togroup(group.name))) # Send current window to another group
 
 
 # LAYOUT ----------------------------------------------------
@@ -143,7 +148,7 @@ layouts = [
     layout.Columns(
         border_focus = nord["frost"][6], 
         border_width = 4,
-        margin = 10
+        margin = 4
     ),
     layout.Floating(
         border_focus = nord["frost"][6],
@@ -221,7 +226,7 @@ screens = [
                 # WINDOW GROUPS
                 # separator_widget(True, nord["frost"][1], nord["frost"][0]),
                 widget.GroupBox(
-                    fontsize = 10,
+                    fontsize = 12,
                     highlight_method = "block",
                     background = nord["frost"][0],
                 ),
@@ -327,31 +332,17 @@ screens = [
         wallpaper = WALLPAPER,
         wallpaper_mode= WALLPAPER_MODE,
 
-        # bottom=bar.Bar(
+        # bottom = bar.Bar(
         #     [
-        #         # LEFT SIDE
-        #         # CURRENT WINDOW NAME
-        #         widget.WindowName(
-        #             background = nord["white"],
-        #             foreground = nord["bg"],
-        #             format = "{name}"
-        #         ),
-        #         separator_widget(True, nord["bg"], nord["white"]),
-
-                
-        #         widget.Spacer(background = nord["bg"]),
-
-        #         # RIGHT SIDE
-        #         # CPU
         #         widget.CPU(
         #             foreground = nord["frost"][4],
-        #             fontsize = 16
+        #             fontsize = 12
         #         ),
 
         #         # MEMORY
         #         widget.Memory(
         #             foreground = nord["frost"][4],
-        #             fontsize = 16,
+        #             fontsize = 12,
         #             format = " RAM:{MemUsed: .0f}{mm}/{MemTotal: .0f}{mm}"
         #         )
 
@@ -376,15 +367,20 @@ screens = [
                 # WINDOW GROUPS
                 # separator_widget(True, nord["frost"][1], nord["frost"][0]),
                 widget.GroupBox(
-                    fontsize = 10,
+                    fontsize = 12,
                     highlight_method = "block",
                     background = nord["frost"][0],
                 ),
 
-                # SYSTEM TRAY INFO
+                # SYSTEM TRAY INFO & NOTIFICATION
                 separator_widget(True, nord["gray"], nord["frost"][0]),
                 widget.Systray(
                     background = nord["gray"]
+                ),
+                widget.Notify(
+                    background = nord["gray"],
+                    foreground_low = nord["frost"][4],
+                    foreground_urgent = nord["urgent"]
                 ),
                 separator_widget(True, nord["bg"], nord["gray"]),
 
@@ -431,16 +427,38 @@ screens = [
                     foreground = nord["bg"],
                 ),
 
-                # WIFI INDICATOR
+                # SYSTEMS INFO
+                #   arrow = ""
+                #   arrow = ""
                 separator_widget(False, nord["frost"][1], nord["frost"][0]),
-                widget.Wlan(
-                    interface = "wlo1",
-                    fontsize = 14,
-                    format = "WLAN: {essid} ",
+                widget.WidgetBox(
                     background = nord["frost"][0],
-                    foreground = nord["white"],
+                    foreground = nord["frost"][4],
+                    fontsize = 14,
+                    text_closed = "🖥️ System ",
+                    text_open = "(x)",
+                    widgets = [
+                        widget.Memory(
+                            format = " 💽 {MemUsed: .0f}{mm} |",
+                            fontsize = 14,
+                            background = nord["frost"][0],
+                            foreground = nord["white"],
+                        ),
+                        widget.CPU(
+                            format = "🖥️ {load_percent}% |",
+                            fontsize = 14,
+                            background = nord["frost"][0],
+                            foreground = nord["white"],
+                        ),
+                        widget.Wlan(
+                            interface = "wlo1",
+                            fontsize = 14,
+                            format = "📶 {essid} ",
+                            background = nord["frost"][0],
+                            foreground = nord["white"],
+                        ),
+                    ]
                 ),
-
             ],
             24,
             margin = 0,
@@ -466,6 +484,7 @@ follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
 
+# RULE: Set these to always floating
 floating_layout = layout.Floating(float_rules=[
     # Run the utility of `xprop` to see the wm class and name of an X client.
     *layout.Floating.default_float_rules,
@@ -476,6 +495,7 @@ floating_layout = layout.Floating(float_rules=[
     Match(title='branchdialog'),  # gitk
     Match(title='pinentry'),  # GPG key password entry
     Match(wm_class="gnome-calculator"),
+    Match(wm_class="gnome-screenshot")
 ])
 
 auto_fullscreen = True
