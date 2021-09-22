@@ -205,7 +205,7 @@ end
 -- NORD THEME
 M.set_nord = function()
   local opts = {
-    nord_contrast = false,
+    nord_contrast = true,
     nord_borders = true,
     nord_disable_background = true,
     nord_italic = true,
@@ -217,6 +217,10 @@ M.set_nord = function()
 
   require('nord').set()
   lualine.setup_lualine('nord')
+
+  -- Cursor Line
+  vim.opt.colorcolumn = '0'
+  vim.opt.cursorline = false
 
   -- Tabline color
   vim.cmd('hi TabLineSel guibg=none')
