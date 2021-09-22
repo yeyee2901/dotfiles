@@ -36,7 +36,9 @@ nord = {
         "#8fbcbb",
         "#E2C17D",
         "#AF87AF",
-        "#82AAFF"
+        "#82AAFF",
+        "#215578",
+        "#5B7DA6"
     ],
 }
 
@@ -120,29 +122,10 @@ keys = [
         lazy.spawn("gnome-screenshot -i"))
 ]
 
-
-#######################
-# GROUPS              #
-#######################
-groups = [
-    Group(name = "1", label = "BROWSE"),
-    Group(name = "2", label = "MEET"),
-    Group(name = "3", label = "TERMINAL"),
-    Group(name = "4", label = "CHAT"),
-    Group(name = "5", label = "MUSIC"),
-    Group(name = "6", label = "CONFIG"),
-    Group(name = "7", label = "OTHERS"),
-]
-
-# Set the keymapping for group
-for group in groups:
-    keys.append(Key([mod], group.name, lazy.group[group.name].toscreen()))        # Switch to another group
-    keys.append(Key([mod, "shift"], group.name, lazy.window.togroup(group.name))) # Send current window to another group
-
-
-# LAYOUT ----------------------------------------------------
-# Well, I only use 2 kinds of layouts. So I don't bother trying
-# The others. I'm comfortable with the column
+# GLOBAL LAYOUTS ---------------------------------------------
+# Groups use these layouts by default.
+# If it's overwritten during group definition, then these will not
+# be used
 layouts = [
     layout.Max(),
     layout.Columns(
@@ -157,9 +140,80 @@ layouts = [
 ]
 
 
+#######################
+# GROUPS              #
+#######################
+groups = [
+    Group(
+        name = "1",
+        label = "WORK"
+    ),
+    Group(
+        name = "2", 
+        label = "BROWSE"
+    ),
+    Group(
+        name = "3",
+        label = "MEET",
+        layouts = [
+            layout.Max()
+        ]
+    ),
+    Group(
+        name = "4",
+        label = "TERMINAL"
+    ),
+    Group(
+        name = "5",
+        label = "CHAT",
+        layouts = [
+            layout.TreeTab(
+                sections = [
+                    "Social Medias",
+                ],
+                panel_width = 200,
+                border_width = 0,
+                margin_left = 0,
 
+                # Title
+                section_fontsize = 20,
+                section_bottom = 10,
+                section_top = 10,
 
+                # Coloring
+                bg_color = nord["frost"][8],
+                active_bg =  nord["frost"][7],
+                active_fg = "#FFFFFF",
+                inactive_bg = nord["frost"][8],
+                inactive_fg = "#FFFFFF"
+            ),
+        ]
+    ),
+    Group(
+        name = "6",
+        label = "MUSIC",
+        layouts = [
+            layout.Columns(
+                border_focus = nord["frost"][6], 
+                border_width = 4,
+                margin = 4
+            ),
+        ]
+    ),
+    Group(
+        name = "7",
+        label = "REC"
+    ),
+    Group(
+        name = "8",
+        label = "OTHERS"
+    ),
+]
 
+# Set the keymapping for group
+for group in groups:
+    keys.append(Key([mod], group.name, lazy.group[group.name].toscreen()))        # Switch to another group
+    keys.append(Key([mod, "shift"], group.name, lazy.window.togroup(group.name))) # Send current window to another group
 
 
 # SCREEN SECTION  -------------------------------------------
@@ -229,6 +283,9 @@ screens = [
                     fontsize = 12,
                     highlight_method = "block",
                     background = nord["frost"][0],
+                    other_current_screen_border = "AF87AF",
+                    other_screen_border = "AF87AF",
+                    this_current_screen_border = "82AAFF"
                 ),
 
                 # SYSTEM TRAY INFO & NOTIFICATION
@@ -370,6 +427,10 @@ screens = [
                     fontsize = 12,
                     highlight_method = "block",
                     background = nord["frost"][0],
+                    other_current_screen_border = "82AAFF",
+                    other_screen_border = "82AAFF",
+                    this_screen_border = "AF87AF",
+                    this_current_screen_border = "FF56AE"
                 ),
 
                 # SYSTEM TRAY INFO & NOTIFICATION
@@ -397,9 +458,7 @@ screens = [
                 # widget.CurrentLayout(
                 #     background = nord["white"],
                 #     foreground = nord["bg"]
-                # ),
-                # separator_widget(True, nord["bg"], nord["white"]),
-
+                # ), separator_widget(True, nord["bg"], nord["white"]),
                 # RIGHT SIDE
                 widget.Spacer(background = nord["bg"]),
 
@@ -494,8 +553,10 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='ssh-askpass'),  # ssh-askpass
     Match(title='branchdialog'),  # gitk
     Match(title='pinentry'),  # GPG key password entry
+
     Match(wm_class="gnome-calculator"),
-    Match(wm_class="gnome-screenshot")
+    Match(wm_class="gnome-screenshot"),
+    Match(wm_class="pcmanfm")
 ])
 
 auto_fullscreen = True
