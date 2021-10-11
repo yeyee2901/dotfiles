@@ -14,7 +14,7 @@ configuration {
 	modi: "window,run";
 	font: "mono 12";
 	show-icons: true;
-	terminal: "gnome-terminal";
+	terminal: "alacritty";
 	run-command: "{cmd}";
 	fullscreen: false;
 }

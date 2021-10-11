@@ -20,6 +20,7 @@ from libqtile.lazy import lazy
 
 mod = "mod4"
 terminal = "alacritty"
+browser = "firefox"
 
 WALLPAPER = "~/Pictures/pop/KR_Meteor.jpg"
 WALLPAPER_MODE = "stretch"
@@ -103,6 +104,9 @@ keys = [
     # Terminal = Super + T
     Key([mod], "t", lazy.spawn(terminal), desc="Launch terminal"),
 
+    # Browser : Firefox
+    Key([mod], "b", lazy.spawn(browser), desc="Launch firefox"),
+
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
 
@@ -146,25 +150,30 @@ layouts = [
 groups = [
     Group(
         name = "1",
-        label = "WORK"
+        label = "WORK1"
+    ),
+
+    Group(
+        name = "2",
+        label = "WORK2"
     ),
     Group(
-        name = "2", 
+        name = "3", 
         label = "BROWSE"
     ),
     Group(
-        name = "3",
+        name = "4",
         label = "MEET",
         layouts = [
             layout.Max()
         ]
     ),
     Group(
-        name = "4",
+        name = "5",
         label = "TERMINAL"
     ),
     Group(
-        name = "5",
+        name = "6",
         label = "CHAT",
         layouts = [
             layout.TreeTab(
@@ -190,7 +199,7 @@ groups = [
         ]
     ),
     Group(
-        name = "6",
+        name = "7",
         label = "MUSIC",
         layouts = [
             layout.Columns(
@@ -201,11 +210,11 @@ groups = [
         ]
     ),
     Group(
-        name = "7",
+        name = "8",
         label = "REC"
     ),
     Group(
-        name = "8",
+        name = "9",
         label = "OTHERS"
     ),
 ]
