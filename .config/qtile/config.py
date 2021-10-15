@@ -150,12 +150,12 @@ layouts = [
 groups = [
     Group(
         name = "1",
-        label = "WORK1"
+        label = "WORK"
     ),
 
     Group(
         name = "2",
-        label = "WORK2"
+        label = "VM"
     ),
     Group(
         name = "3", 
@@ -329,16 +329,16 @@ screens = [
                 widget.Spacer(background = nord["bg"]),
 
                 # MOC - music player
-                separator_widget(False, nord["bg"], nord["white"]),
-                widget.Moc(
-                    background = nord["white"],
-                    foreground = nord["bg"],
-                    play_color = nord["bg"],
-                    noplay_color = nord["bg"],
-                ),
+                # separator_widget(False, nord["bg"], nord["white"]),
+                # widget.Moc(
+                #     background = nord["white"],
+                #     foreground = nord["bg"],
+                #     play_color = nord["bg"],
+                #     noplay_color = nord["bg"],
+                # ),
 
                 # DATE
-                separator_widget(False, nord["white"], nord["frost"][2]),
+                separator_widget(False, nord["bg"], nord["frost"][2]),
                 widget.Clock(
                     background = nord["frost"][2],
                     foreground = nord["bg"],
