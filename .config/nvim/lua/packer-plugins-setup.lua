@@ -23,8 +23,10 @@ require('packer').startup(function()
   use {'mhinz/vim-startify'}
 
   -- File tree preview
-  use {'kyazdani42/nvim-web-devicons'}
-  use {'kyazdani42/nvim-tree.lua'}
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = 'kyazdani42/nvim-web-devicons'
+  }
 
   --Themes choose only one
   use {'tanvirtin/monokai.nvim'}
