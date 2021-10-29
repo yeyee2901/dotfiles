@@ -81,7 +81,7 @@ alias tka='t kill-server'
 
 # Vim aliases
 alias v='vim'
-alias nv='nvim'
+alias nv='~/bin/nvim'
 alias wiki='cd ~/vimwiki ; nvim ~/vimwiki/index.wiki'
 
 # Dot files
@@ -127,7 +127,15 @@ DIODA=~/Pictures/Dio.png
 ###################
 alias luamake=/home/yeyee2901/bin/lua-language-server/3rd/luamake/luamake
 
-
+################################################
+#       _            _                         #
+#      / \   _ __ __| | ___  _   _ _ __        #
+#     / _ \ | '__/ _` |/ _ \| | | | '__|       #
+#    / ___ \| | | (_| | (_) | |_| | |          #
+#   /_/   \_\_|  \__,_|\___/ \__,_|_|          #
+#                                              #
+################################################
+export AD=~/ardour/
 
 ############################################
 # ░░░█▀█░█▀█░█▀█░█▀▀░█▀█░█▀█░█▀▄░█▀█░░     #

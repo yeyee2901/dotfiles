@@ -436,10 +436,9 @@ screens = [
                     fontsize = 12,
                     highlight_method = "block",
                     background = nord["frost"][0],
-                    other_current_screen_border = "82AAFF",
-                    other_screen_border = "82AAFF",
-                    this_screen_border = "AF87AF",
-                    this_current_screen_border = "FF56AE"
+                    other_current_screen_border = "AF87AF",
+                    other_screen_border = "AF87AF",
+                    this_current_screen_border = "82AAFF"
                 ),
 
                 # SYSTEM TRAY INFO & NOTIFICATION
@@ -467,21 +466,23 @@ screens = [
                 # widget.CurrentLayout(
                 #     background = nord["white"],
                 #     foreground = nord["bg"]
-                # ), separator_widget(True, nord["bg"], nord["white"]),
+                # ),
+                # separator_widget(True, nord["bg"], nord["white"]),
+
                 # RIGHT SIDE
                 widget.Spacer(background = nord["bg"]),
 
                 # MOC - music player
-                separator_widget(False, nord["bg"], nord["white"]),
-                widget.Moc(
-                    background = nord["white"],
-                    foreground = nord["bg"],
-                    play_color = nord["bg"],
-                    noplay_color = nord["bg"],
-                ),
+                # separator_widget(False, nord["bg"], nord["white"]),
+                # widget.Moc(
+                #     background = nord["white"],
+                #     foreground = nord["bg"],
+                #     play_color = nord["bg"],
+                #     noplay_color = nord["bg"],
+                # ),
 
                 # DATE
-                separator_widget(False, nord["white"], nord["frost"][2]),
+                separator_widget(False, nord["bg"], nord["frost"][2]),
                 widget.Clock(
                     background = nord["frost"][2],
                     foreground = nord["bg"],
