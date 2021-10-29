@@ -221,6 +221,20 @@ M.set_nord = function()
   -- Cursor Line
   vim.opt.colorcolumn = '0'
   vim.opt.cursorline = false
+
+  -- default:
+  --  guibg = #3B4252
+  if opts.nord_disable_background then
+    vim.cmd[[highlight TelescopeNormal guibg=none]]
+  end
+
+  -- default:
+  --  guibg = #3B4252
+  vim.cmd[[highlight Visual guibg=#696969]]
+
+  -- TablineSel colors
+  -- default: #4C566A
+  vim.cmd[[highlight TablineSel guibg=none]]
 end
 
 -- Vim colorizer
