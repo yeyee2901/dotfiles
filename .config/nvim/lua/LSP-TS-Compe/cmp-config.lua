@@ -29,6 +29,7 @@ cmp.setup({
     min_height = 1,
   },
 
+  -- LSP results icon like VSCode
   -- INSTALL:
   -- onsails/lspkind-nvim
   formatting = {
@@ -64,7 +65,8 @@ cmp.setup({
 
   -- EXPERIMENTAL:
   experimental = {
-    ghost_text = false
+    ghost_text = true,
+    native_menu = false
   },
 
 })

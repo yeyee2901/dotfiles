@@ -60,7 +60,6 @@ require('packer').startup(function()
   use {'glepnir/lspsaga.nvim'}
 
   -- Completion engine
-  -- use {'hrsh7th/nvim-compe'} -- Deprecated
   use {'hrsh7th/nvim-cmp',
     requires = {
       'hrsh7th/cmp-nvim-lsp',
@@ -108,8 +107,9 @@ require('packer').startup(function()
   -- Note taking
   use {'vimwiki/vimwiki'}
 
-  -- Black Python Formatter
-
+  -- Distant.nvim
+  -- SSH editing like Visual Studio Code Remote
+  use {'chipsenkbeil/distant.nvim'}
 end)
 
 if new_install then

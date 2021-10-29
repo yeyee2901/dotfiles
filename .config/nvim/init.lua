@@ -24,6 +24,7 @@ require('user-plugin-settings.setup-nvim-tree')
 require('user-plugin-settings.setup-telescope')
 require('user-plugin-settings.setup-snippets')
 require('user-plugin-settings.setup-markdown-preview')
+require('user-plugin-settings.setup-distant')
 vim.cmd[[source ~/.config/nvim/VimWiki/setup-vimwiki.vim]]
 
 require('LSP-TS-Compe.cmp-config')

@@ -221,13 +221,7 @@ M.set_nord = function()
   -- Cursor Line
   vim.opt.colorcolumn = '0'
   vim.opt.cursorline = false
-
-  -- Tabline color
-  vim.cmd('hi TabLineSel guibg=none')
-  vim.cmd('hi TabLineFill guibg=none')
-  vim.cmd('hi TabLine guibg=none')
 end
-
 
 -- Vim colorizer
 require('colorizer').setup()
