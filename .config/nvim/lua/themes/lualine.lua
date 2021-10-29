@@ -89,11 +89,11 @@ M.setup_lualine = function(theme)
         lualine_z = {}
       },
 
-      tabline = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = {},
-      },
+      -- tabline = {
+      --   lualine_a = {},
+      --   lualine_b = {},
+      --   lualine_c = {},
+      -- },
     }
     vim.cmd('source ~/.config/nvim/lua/themes/tabline.vim')
 end
