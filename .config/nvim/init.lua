@@ -49,7 +49,7 @@ require('themes.my-themes').set_nord()
 -- Temporary for LaTeX stuffs
 -- Currently, no API for autocommand & defining command
 vim.cmd('source ~/.config/nvim/autocmds.vim')
-vim.cmd('source ~/.config/nvim/LaTeX/LaTeX_comamands.vim')
+vim.cmd('source ~/.config/nvim/LaTeX/LaTeX_commands.vim')
 
 -- User defined commands
 vim.cmd('source ~/.config/nvim/commands.vim')
