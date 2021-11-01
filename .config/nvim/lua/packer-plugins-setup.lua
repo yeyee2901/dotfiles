@@ -82,9 +82,16 @@ require('packer').startup(function()
   use {'nvim-telescope/telescope-symbols.nvim'}
   use {'nvim-telescope/telescope-fzy-native.nvim'}
   use {'fhill2/telescope-ultisnips.nvim', requires = {'SirVer/ultisnips'}}
+  use {'nvim-telescope/telescope-project.nvim'}
 
   -- Git it gud
   use {'tpope/vim-fugitive'}
+  use {
+    'tpope/vim-rhubarb',
+    requires = {
+      'tpope/vim-fugitive'
+    }
+  }
 
   -- Snippets
   use {'SirVer/ultisnips'}

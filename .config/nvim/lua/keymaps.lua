@@ -92,7 +92,7 @@ _noremap('t', '<ESC><ESC>', '<cmd>lua require("lspsaga.floaterm").close_float_te
 _noremap('n', '<Leader>p',   '<cmd>lua require("lspsaga.provider").preview_definition()<CR>')
 _noremap('n', 'gd',          '<cmd>lua vim.lsp.buf.definition()<CR>')
 _noremap('n', 'gD',          '<cmd>lua vim.lsp.buf.declaration()<CR>')
-_noremap('n', 'K',           '<cmd>lua require("lspsaga.hover").render_hover_doc()<CR>')
+_noremap('n', 'K',           '<cmd>lua vim.lsp.buf.hover()<CR>')
 _noremap('n', '<C-u>',       '<cmd>lua require("lspsaga.action").smart_scroll_with_saga(-1)<CR>')
 _noremap('n', '<C-d>',       '<cmd>lua require("lspsaga.action").smart_scroll_with_saga(1)<CR>')
 _noremap('n', '<Leader>lr',  '<cmd>lua require("lspsaga.provider").lsp_finder()<CR>')
@@ -174,6 +174,7 @@ _noremap('n', '<Leader>tea', '<cmd>lua require("my-telescope.wrapper").tele_emoj
 _noremap('n', '<Leader>teg', '<cmd>lua require("my-telescope.wrapper").tele_gitmoji()<CR>')
 _noremap('n', '<Leader>tee', '<cmd>lua require("my-telescope.wrapper").tele_emoji()<CR>')
 _noremap('n', '<Leader>tek', '<cmd>lua require("my-telescope.wrapper").tele_kaomoji()<CR>')
+_noremap('n', '<Leader>tP',  '<cmd>Telescope project<CR>')
 
 -- PLUGIN: VimWiki
 _noremap('n', '<Leader>wj',     '<cmd>VimwikiNextLink<CR>')
