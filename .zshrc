@@ -25,8 +25,22 @@ export PATH=$PATH:$HOME/bin:/usr/local/bin:$HOME/.config/nvim/plugged/:$HOME/.lo
 ##################################################################
 export ZSH=$HOME/.oh-my-zsh
 
-# awesomepanda, af-magic, amuse
-ZSH_THEME="awesomepanda"
+# Nice themes: awesomepanda, af-magic, amuse, agnoster
+# Some notes for Agnoster:
+# On ~/.oh-my-zsh/themes/agnoster.zsh-theme, change :
+#
+#     prompt_dir() {
+#       prompt_segment blue $CURRENT_FG '%~'
+#     }
+#
+# to :
+#     prompt_dir() {
+#       prompt_segment blue $CURRENT_FG '%c'
+#     }
+#
+# This will only show the shorter directory name, not the full directory name.
+# I don't like the prompt to be to longgg..
+ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
