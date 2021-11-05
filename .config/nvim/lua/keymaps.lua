@@ -3,10 +3,6 @@ local _noremap = function(mode, key, map_to)
   vim.api.nvim_set_keymap(mode, key, map_to, {noremap = true, silent = false})
 end
 
-local _noremap_expr = function(mode, key, map_to)
-  vim.api.nvim_set_keymap(mode, key, map_to, {noremap = true, silent = false, expr = true})
-end
-
 local _noremap_silent = function(mode, key, map_to)
   vim.api.nvim_set_keymap(mode, key, map_to, {noremap = true, silent = true})
 end
@@ -216,5 +212,6 @@ _noremap('n', ';ta', '<cmd>TeXall<CR>')
 _noremap('n', ';tt', '<cmd>TeXmake<CR>')
 _noremap('n', ';tb', '<cmd>TeXbib<CR>')
 
+
 -- MY TELESCOPE PICKERS
-_noremap('n', '<Leader>ssh', '<cmd>lua require("my-telescope.pickers-list.distant").open()<CR>')
+_noremap('n', '<Leader>ssh', '<cmd>lua require("my-telescope.pickers-list.distant_telescope").open()<CR>')
