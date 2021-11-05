@@ -16,7 +16,7 @@ end
 
 
 require('packer').startup(function()
-  -- Packer self management, DO NOT REMOVE
+  -- WARNING: Packer self management, DO NOT REMOVE
   use {'wbthomason/packer.nvim'}
 
   -- Start menu
@@ -29,18 +29,18 @@ require('packer').startup(function()
   }
 
   --Themes choose only one
-  use {'tanvirtin/monokai.nvim'}
-  use {'tomasiser/vim-code-dark'}
-  use {'ayu-theme/ayu-vim'}
-  use {'folke/tokyonight.nvim'}
-  use {'ray-x/aurora'}
-  use {'tjdevries/gruvbuddy.nvim', requires = {'tjdevries/colorbuddy.vim'} }
+  -- use {'tanvirtin/monokai.nvim'}
+  -- use {'tomasiser/vim-code-dark'}
+  -- use {'ayu-theme/ayu-vim'}
+  -- use {'folke/tokyonight.nvim'}
+  -- use {'ray-x/aurora'}
+  -- use {'tjdevries/gruvbuddy.nvim', requires = {'tjdevries/colorbuddy.vim'} }
 
-  -- still in alpha, color is confusing
-  use {'npxbr/gruvbox.nvim', requires = {'rktjmp/lush.nvim'} }
+  -- -- still in alpha, color is confusing
+  -- use {'npxbr/gruvbox.nvim', requires = {'rktjmp/lush.nvim'} }
 
-  -- Still testing, but apparently it has tree-sitter support
-  use {'sainnhe/gruvbox-material'}
+  -- -- Still testing, but apparently it has tree-sitter support
+  -- use {'sainnhe/gruvbox-material'}
 
   -- Nord color pallete
   use {'shaunsingh/nord.nvim'}

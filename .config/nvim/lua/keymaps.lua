@@ -215,3 +215,6 @@ _noremap('n', '<Leader>tu',    '<cmd>lua require("my-telescope.wrapper").tele_sn
 _noremap('n', ';ta', '<cmd>TeXall<CR>')
 _noremap('n', ';tt', '<cmd>TeXmake<CR>')
 _noremap('n', ';tb', '<cmd>TeXbib<CR>')
+
+-- MY TELESCOPE PICKERS
+_noremap('n', '<Leader>ssh', '<cmd>lua require("my-telescope.pickers-list.distant").open()<CR>')
