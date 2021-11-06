@@ -122,8 +122,9 @@ keys = [
     ), 
 
     # Take screenshots
+    # Install from apt
     Key([], "Print", 
-        lazy.spawn("gnome-screenshot -i"))
+        lazy.spawn("flameshot gui"))
 ]
 
 # GLOBAL LAYOUTS ---------------------------------------------
