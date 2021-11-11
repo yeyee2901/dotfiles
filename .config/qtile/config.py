@@ -22,8 +22,9 @@ mod = "mod4"
 terminal = "alacritty"
 browser = "firefox"
 
-WALLPAPER = "~/Pictures/pop/KR_Meteor.jpg"
+WALLPAPER = "~/Pictures/pop/KR-Meteor.png"
 WALLPAPER_MODE = "stretch"
+COLORSCHEME = "solarized"
 
 nord = {
     "white" : "#E4E4E4",
@@ -43,6 +44,25 @@ nord = {
     ],
 }
 
+solarized = {
+    "back"    : '#002b36',
+    "red"     : '#dc322f',
+    "green"   : '#859900',
+    "yellow"  : '#b58900',
+    "blue"    : '#268bd2',
+    "magenta" : '#d33682',
+    "cyan"    : '#2aa198',
+    "orange"  : '#cb4b16',
+
+    "base00"  : '#657b83',
+    "base01"  : '#586e75',
+    "base0"   : '#839496',
+    "base02"  : '#073642',
+    "violet"  : '#6c71c4',
+    "base1"   : '#93a1a1',
+    "base2"   : '#eee8d5',
+    "base3"   : '#fdf6e3',
+}
 
 
 
@@ -176,39 +196,10 @@ groups = [
     Group(
         name = "6",
         label = "CHAT",
-        layouts = [
-            layout.TreeTab(
-                sections = [
-                    "Social Medias",
-                ],
-                panel_width = 200,
-                border_width = 0,
-                margin_left = 0,
-
-                # Title
-                section_fontsize = 20,
-                section_bottom = 10,
-                section_top = 10,
-
-                # Coloring
-                bg_color = nord["frost"][8],
-                active_bg =  nord["frost"][7],
-                active_fg = "#FFFFFF",
-                inactive_bg = nord["frost"][8],
-                inactive_fg = "#FFFFFF"
-            ),
-        ]
     ),
     Group(
         name = "7",
         label = "MUSIC",
-        layouts = [
-            layout.Columns(
-                border_focus = nord["frost"][6], 
-                border_width = 4,
-                margin = 4
-            ),
-        ]
     ),
     Group(
         name = "8",
@@ -247,295 +238,188 @@ def separator_widget(arrow_right: bool, bg: str, fg: str):
     return widget.TextBox(arrow, background=bg, foreground=fg, fontsize=18, padding=0)
 
 
-screens = [
-    # SCREEN 1 ------------------------------------
-    Screen(
+if COLORSCHEME == "nord":
+    screens = [
+        # SCREEN 1 ------------------------------------
+        Screen(
 
-        # WALLPAPER -------------------------------
-        wallpaper = WALLPAPER,
-        wallpaper_mode= WALLPAPER_MODE,
+            # WALLPAPER -------------------------------
+            wallpaper =  "~/Pictures/pop/KR_Meteor.jpg",
+            wallpaper_mode= WALLPAPER_MODE,
 
-        # bottom = bar.Bar(
-        #     [
-        #         widget.CPU(
-        #             foreground = nord["frost"][4],
-        #             fontsize = 12
-        #         ),
+            top=bar.Bar(
+                [
+                    # LEFT SIDE
+                    # widget.Spacer(length=5, background = nord["frost"][0]),
 
-        #         # MEMORY
-        #         widget.Memory(
-        #             foreground = nord["frost"][4],
-        #             fontsize = 12,
-        #             format = " RAM:{MemUsed: .0f}{mm}/{MemTotal: .0f}{mm}"
-        #         )
+                    # # MY NAME
+                    # widget.TextBox(
+                    #     "💻 yeyee2901",
+                    #     background = nord["frost"][0],
+                    #     foreground = nord["white"]
+                    # ),
 
-        #     ],
-        #     24,
-        #     margin = 0,
-        #     background = nord["bg"]
-        # ),
+                    # WINDOW GROUPS
+                    # separator_widget(True, nord["frost"][1], nord["frost"][0]),
+                    widget.GroupBox(
+                        fontsize = 12,
+                        highlight_method = "block",
+                        background = nord["frost"][0],
+                        other_current_screen_border = "AF87AF",
+                        other_screen_border = "AF87AF",
+                        this_current_screen_border = "82AAFF"
+                    ),
 
-        top=bar.Bar(
-            [
-                # LEFT SIDE
-                # widget.Spacer(length=5, background = nord["frost"][0]),
+                    # SYSTEM TRAY & NOTIFICATION
+                    separator_widget(True, nord["gray"], nord["frost"][0]),
+                    widget.Systray(
+                        background = nord["gray"]
+                    ),
+                    widget.Notify(
+                        background = nord["gray"],
+                        foreground_low = nord["frost"][4],
+                        foreground_urgent = nord["urgent"]
+                    ),
+                    separator_widget(True, nord["bg"], nord["gray"]),
 
-                # # MY NAME
-                # widget.TextBox(
-                #     "💻 yeyee2901",
-                #     background = nord["frost"][0],
-                #     foreground = nord["white"]
-                # ),
+                    # RIGHT SIDE
+                    widget.Spacer(background = nord["bg"]),
 
-                # WINDOW GROUPS
-                # separator_widget(True, nord["frost"][1], nord["frost"][0]),
-                widget.GroupBox(
-                    fontsize = 12,
-                    highlight_method = "block",
-                    background = nord["frost"][0],
-                    other_current_screen_border = "AF87AF",
-                    other_screen_border = "AF87AF",
-                    this_current_screen_border = "82AAFF"
-                ),
+                    # DATE
+                    separator_widget(False, nord["bg"], nord["frost"][2]),
+                    widget.Clock(
+                        background = nord["frost"][2],
+                        foreground = nord["bg"],
+                        format = "%d/%m/%Y"
+                    ),
 
-                # SYSTEM TRAY INFO & NOTIFICATION
-                separator_widget(True, nord["gray"], nord["frost"][0]),
-                widget.Systray(
-                    background = nord["gray"]
-                ),
-                widget.Notify(
-                    background = nord["gray"],
-                    foreground_low = nord["frost"][4],
-                    foreground_urgent = nord["urgent"]
-                ),
-                separator_widget(True, nord["bg"], nord["gray"]),
+                    # CLOCK
+                    separator_widget(False, nord["frost"][2], nord["frost"][1]),
+                    widget.Clock(
+                        background = nord["frost"][1],
+                        foreground = nord["bg"],
+                    ),
 
-                # ACTIVE SCREEN
-                # separator_widget(True, nord["frost"][2], nord["frost"][1]),
-                # widget.CurrentScreen(
-                #     background = nord["frost"][2],
-                #     inactive_color = nord["frost"][2],
-                #     active_color = nord["bg"],
-                # ),
-
-                # CURRENT LAYOUT
-                # separator_widget(True, nord["white"], nord["frost"][2]),
-                # widget.CurrentLayout(
-                #     background = nord["white"],
-                #     foreground = nord["bg"]
-                # ),
-                # separator_widget(True, nord["bg"], nord["white"]),
-
-                # RIGHT SIDE
-                widget.Spacer(background = nord["bg"]),
-
-                # MOC - music player
-                # separator_widget(False, nord["bg"], nord["white"]),
-                # widget.Moc(
-                #     background = nord["white"],
-                #     foreground = nord["bg"],
-                #     play_color = nord["bg"],
-                #     noplay_color = nord["bg"],
-                # ),
-
-                # DATE
-                separator_widget(False, nord["bg"], nord["frost"][2]),
-                widget.Clock(
-                    background = nord["frost"][2],
-                    foreground = nord["bg"],
-                    format = "%d/%m/%Y"
-                ),
-
-                # CLOCK
-                separator_widget(False, nord["frost"][2], nord["frost"][1]),
-                widget.Clock(
-                    background = nord["frost"][1],
-                    foreground = nord["bg"],
-                ),
-
-                # SYSTEMS INFO
-                #   arrow = ""
-                #   arrow = ""
-                separator_widget(False, nord["frost"][1], nord["frost"][0]),
-                widget.WidgetBox(
-                    background = nord["frost"][0],
-                    foreground = nord["frost"][4],
-                    fontsize = 14,
-                    text_closed = "🖥️ System ",
-                    text_open = "(x)",
-                    widgets = [
-                        widget.Memory(
-                            format = " 💽 {MemUsed: .0f}{mm} |",
-                            fontsize = 14,
-                            background = nord["frost"][0],
-                            foreground = nord["white"],
-                        ),
-                        widget.CPU(
-                            format = "🖥️ {load_percent}% |",
-                            fontsize = 14,
-                            background = nord["frost"][0],
-                            foreground = nord["white"],
-                        ),
-                        widget.Wlan(
-                            interface = "wlo1",
-                            fontsize = 14,
-                            format = "📶 {essid} ",
-                            background = nord["frost"][0],
-                            foreground = nord["white"],
-                        ),
-                    ]
-                ),
-            ],
-            24,
-            margin = 0,
-            background = nord["bg"],
+                    # SYSTEMS INFO
+                    #   arrow = ""
+                    #   arrow = ""
+                    separator_widget(False, nord["frost"][1], nord["frost"][0]),
+                    widget.WidgetBox(
+                        background = nord["frost"][0],
+                        foreground = nord["frost"][4],
+                        fontsize = 14,
+                        text_closed = "🖥️ System ",
+                        text_open = "(x)",
+                        widgets = [
+                            widget.Memory(
+                                format = " 💽 {MemUsed: .0f}{mm} |",
+                                fontsize = 14,
+                                background = nord["frost"][0],
+                                foreground = nord["white"],
+                            ),
+                            widget.CPU(
+                                format = "🖥️ {load_percent}% |",
+                                fontsize = 14,
+                                background = nord["frost"][0],
+                                foreground = nord["white"],
+                            ),
+                            widget.Wlan(
+                                interface = "wlo1",
+                                fontsize = 14,
+                                format = "📶 {essid} ",
+                                background = nord["frost"][0],
+                                foreground = nord["white"],
+                            ),
+                        ]
+                    ),
+                ],
+                24,
+                margin = 0,
+                background = nord["bg"],
+            ),
         ),
-    ),
+    ]
 
-    # SCREEN 2 ------------------------------------
-    Screen(
+elif COLORSCHEME == "solarized":
+    screens = [
+        # SCREEN 1 ------------------------------------
+        Screen(
 
-        # WALLPAPER -------------------------------
-        wallpaper = WALLPAPER,
-        wallpaper_mode= WALLPAPER_MODE,
+            # WALLPAPER -------------------------------
+            wallpaper = "~/.config/qtile/KR-Amazons-Omega.jpg",
+            wallpaper_mode= WALLPAPER_MODE,
 
-        # bottom = bar.Bar(
-        #     [
-        #         widget.CPU(
-        #             foreground = nord["frost"][4],
-        #             fontsize = 12
-        #         ),
+            top=bar.Bar(
+                [
+                    # WINDOW GROUPS
+                    widget.GroupBox(
+                        fontsize = 12,
+                        highlight_method = "block",
+                        background = solarized["cyan"],
+                    ),
 
-        #         # MEMORY
-        #         widget.Memory(
-        #             foreground = nord["frost"][4],
-        #             fontsize = 12,
-        #             format = " RAM:{MemUsed: .0f}{mm}/{MemTotal: .0f}{mm}"
-        #         )
+                    # SYSTEM TRAY & NOTIFICATION
+                    separator_widget(True, solarized["base02"], solarized["cyan"]),
+                    widget.Systray(
+                        background = solarized["base02"]
+                    ),
 
-        #     ],
-        #     24,
-        #     margin = 0,
-        #     background = nord["bg"]
-        # ),
+                    separator_widget(True, solarized["base02"], solarized["base02"]),
 
-        top=bar.Bar(
-            [
-                # LEFT SIDE
-                # widget.Spacer(length=5, background = nord["frost"][0]),
+                    # RIGHT SIDE
+                    widget.Spacer(background = solarized["base02"]),
 
-                # # MY NAME
-                # widget.TextBox(
-                #     "💻 yeyee2901",
-                #     background = nord["frost"][0],
-                #     foreground = nord["white"]
-                # ),
+                    # DATE
+                    separator_widget(False, solarized["base02"], solarized["cyan"]),
+                    widget.Clock(
+                        background = solarized["cyan"],
+                        foreground = solarized["base2"],
+                        format = "%d/%m/%Y"
+                    ),
 
-                # WINDOW GROUPS
-                # separator_widget(True, nord["frost"][1], nord["frost"][0]),
-                widget.GroupBox(
-                    fontsize = 12,
-                    highlight_method = "block",
-                    background = nord["frost"][0],
-                    other_current_screen_border = "AF87AF",
-                    other_screen_border = "AF87AF",
-                    this_current_screen_border = "82AAFF"
-                ),
+                    # CLOCK
+                    widget.Clock(
+                        background = solarized["cyan"],
+                        foreground = solarized["base2"],
+                    ),
 
-                # SYSTEM TRAY INFO & NOTIFICATION
-                separator_widget(True, nord["gray"], nord["frost"][0]),
-                widget.Systray(
-                    background = nord["gray"]
-                ),
-                widget.Notify(
-                    background = nord["gray"],
-                    foreground_low = nord["frost"][4],
-                    foreground_urgent = nord["urgent"]
-                ),
-                separator_widget(True, nord["bg"], nord["gray"]),
-
-                # ACTIVE SCREEN
-                # separator_widget(True, nord["frost"][2], nord["frost"][1]),
-                # widget.CurrentScreen(
-                #     background = nord["frost"][2],
-                #     inactive_color = nord["frost"][2],
-                #     active_color = nord["bg"],
-                # ),
-
-                # CURRENT LAYOUT
-                # separator_widget(True, nord["white"], nord["frost"][2]),
-                # widget.CurrentLayout(
-                #     background = nord["white"],
-                #     foreground = nord["bg"]
-                # ),
-                # separator_widget(True, nord["bg"], nord["white"]),
-
-                # RIGHT SIDE
-                widget.Spacer(background = nord["bg"]),
-
-                # MOC - music player
-                # separator_widget(False, nord["bg"], nord["white"]),
-                # widget.Moc(
-                #     background = nord["white"],
-                #     foreground = nord["bg"],
-                #     play_color = nord["bg"],
-                #     noplay_color = nord["bg"],
-                # ),
-
-                # DATE
-                separator_widget(False, nord["bg"], nord["frost"][2]),
-                widget.Clock(
-                    background = nord["frost"][2],
-                    foreground = nord["bg"],
-                    format = "%d/%m/%Y"
-                ),
-
-                # CLOCK
-                separator_widget(False, nord["frost"][2], nord["frost"][1]),
-                widget.Clock(
-                    background = nord["frost"][1],
-                    foreground = nord["bg"],
-                ),
-
-                # SYSTEMS INFO
-                #   arrow = ""
-                #   arrow = ""
-                separator_widget(False, nord["frost"][1], nord["frost"][0]),
-                widget.WidgetBox(
-                    background = nord["frost"][0],
-                    foreground = nord["frost"][4],
-                    fontsize = 14,
-                    text_closed = "🖥️ System ",
-                    text_open = "(x)",
-                    widgets = [
-                        widget.Memory(
-                            format = " 💽 {MemUsed: .0f}{mm} |",
-                            fontsize = 14,
-                            background = nord["frost"][0],
-                            foreground = nord["white"],
-                        ),
-                        widget.CPU(
-                            format = "🖥️ {load_percent}% |",
-                            fontsize = 14,
-                            background = nord["frost"][0],
-                            foreground = nord["white"],
-                        ),
-                        widget.Wlan(
-                            interface = "wlo1",
-                            fontsize = 14,
-                            format = "📶 {essid} ",
-                            background = nord["frost"][0],
-                            foreground = nord["white"],
-                        ),
-                    ]
-                ),
-            ],
-            24,
-            margin = 0,
-            background = nord["bg"],
+                    # SYSTEMS INFO
+                    separator_widget(False, solarized["cyan"], solarized["green"]),
+                    widget.WidgetBox(
+                        background = solarized["green"],
+                        foreground = solarized["base2"],
+                        fontsize = 14,
+                        text_closed = "🖥️ System ",
+                        text_open = "(x)",
+                        widgets = [
+                            widget.Memory(
+                                format = " 💽 {MemUsed: .0f}{mm} |",
+                                fontsize = 14,
+                                background = solarized["green"],
+                                foreground = solarized["base2"],
+                            ),
+                            widget.CPU(
+                                format = "🖥️ {load_percent}% |",
+                                fontsize = 14,
+                                background = solarized["green"],
+                                foreground = solarized["base2"],
+                            ),
+                            widget.Wlan(
+                                interface = "wlo1",
+                                fontsize = 14,
+                                format = "📶 {essid} ",
+                                background = solarized["green"],
+                                foreground = solarized["base2"],
+                            ),
+                        ]
+                    ),
+                ],
+                24,
+                margin = 0,
+                background = nord["bg"],
+            ),
         ),
-    ),
-]
+    ]
 
 
 # MOUSE BINDINGS --------------------------------------
