@@ -170,7 +170,7 @@ _noremap('n', '<Leader>tea', '<cmd>lua require("my-telescope.wrapper").tele_emoj
 _noremap('n', '<Leader>teg', '<cmd>lua require("my-telescope.wrapper").tele_gitmoji()<CR>')
 _noremap('n', '<Leader>tee', '<cmd>lua require("my-telescope.wrapper").tele_emoji()<CR>')
 _noremap('n', '<Leader>tek', '<cmd>lua require("my-telescope.wrapper").tele_kaomoji()<CR>')
-_noremap('n', '<Leader>tP',  '<cmd>Telescope project<CR>')
+_noremap('n', '<Leader>tP',  '<cmd>lua require("my-telescope.wrapper").tele_project()<CR>')
 
 -- PLUGIN: VimWiki
 _noremap('n', '<Leader>wj',     '<cmd>VimwikiNextLink<CR>')

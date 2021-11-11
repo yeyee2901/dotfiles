@@ -4,6 +4,7 @@ local M = {}
 local builtin = require('telescope.builtin')
 local themes = require('telescope.themes')
 local ultisnips = require('telescope').extensions.ultisnips
+local project = require('telescope').extensions.project
 local default_theme = 'get_ivy'   -- {"get_ivy", "get_dropdown", "get_cursor"}
 
 
@@ -188,4 +189,9 @@ M.tele_kaomoji = function ()
   }))
 end
 
+M.tele_project = function()
+  project.project({
+    display_type = "full"
+  })
+end
 return M
