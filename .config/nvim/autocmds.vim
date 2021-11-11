@@ -23,3 +23,12 @@ augroup VimWikiGroup
     autocmd Filetype vimwiki set softtabstop=2
     autocmd Filetype vimwiki set shiftwidth=2
 augroup END
+
+augroup KEYWORDS_HL
+    autocmd!
+    autocmd Syntax * call matchadd(
+        \ 'Search',
+        \ '\v\W\zs<(NOTE|DEADLINE|INFO|WARNING|DESCRIPTION)>'
+        \ )
+
+augroup END
