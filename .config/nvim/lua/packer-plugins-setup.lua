@@ -28,25 +28,19 @@ require('packer').startup(function()
     requires = 'kyazdani42/nvim-web-devicons'
   }
 
-  --Themes choose only one
-  -- use {'tanvirtin/monokai.nvim'}
-  -- use {'tomasiser/vim-code-dark'}
-  -- use {'ayu-theme/ayu-vim'}
-  -- use {'folke/tokyonight.nvim'}
-  -- use {'ray-x/aurora'}
-  -- use {'tjdevries/gruvbuddy.nvim', requires = {'tjdevries/colorbuddy.vim'} }
-
-  -- -- still in alpha, color is confusing
-  -- use {'npxbr/gruvbox.nvim', requires = {'rktjmp/lush.nvim'} }
-
-  -- -- Still testing, but apparently it has tree-sitter support
-  -- use {'sainnhe/gruvbox-material'}
-
   -- Nord color pallete
   use {'shaunsingh/nord.nvim'}
 
+  -- Solarized
+  use {'ishan9299/nvim-solarized-lua'}
+
   -- Status line
-  use {'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-tree.lua'} }
+  use {
+    'hoob3rt/lualine.nvim', 
+    requires = {
+      'kyazdani42/nvim-tree.lua'
+    } 
+  }
 
   -- Colorizer for color codes like this one -> #ff0000
   use {'norcalli/nvim-colorizer.lua'}
@@ -122,4 +116,3 @@ end)
 if new_install then
   vim.cmd('PackerInstall')
 end
-

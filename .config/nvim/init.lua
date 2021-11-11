@@ -36,9 +36,8 @@ require('LSP-TS-Compe.tree-sitter-configs')
 require('keymaps')
 
 require('themes.my-themes').set_nord()
+require('themes.my-themes').set_solarized()
 
--- Temporary for LaTeX stuffs
--- Currently, no API for autocommand & defining command
 vim.cmd('source ~/.config/nvim/autocmds.vim')
 vim.cmd('source ~/.config/nvim/LaTeX/LaTeX_commands.vim')
 
