@@ -42,42 +42,11 @@ local LSP_signature_setup = {
       },
     }
 
-    -- Big thanks to Takuya Matsuyama from Japan for providing this icon setup.
-    -- He provided amazing video on setting up LSP on Neovim 0.5.0.
-    -- https://blog.inkdrop.info/how-to-set-up-neovim-0-5-modern-plugins-lsp-treesitter-etc-542c3d9c9887
-    -- require('vim.lsp.protocol').CompletionItemKind = {
-    --   '  Text',
-    --   '  Method',
-    --   '  Function',
-    --   '  Constructor',
-    --   '  Attribute/Field',
-    --   '  Var',
-    --   '  Class',
-    --   'ﰮ  Interface',
-    --   '  Module',
-    --   '  Property',
-    --   '  Unit',
-    --   '  Value',
-    --   '  Enum',
-    --   '  Keyword',
-    --   '﬌  Snippet',
-    --   '  Color',
-    --   '  File',
-    --   '  Ref',
-    --   '  Folder',
-    --   '  Enum Member',
-    --   '  Constant',
-    --   '  Structure',
-    --   '  Event',
-    --   'OP Operator',
-    --   '  TypeParam',
-    -- }
-
     -- autoformat on save
     if client.resolved_capabilities.document_formatting then
       vim.cmd("autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting_seq_sync()")
     end
-  end, --end func
+  end
 }
 
 -- LSPSaga
@@ -96,11 +65,10 @@ lsp_saga.init_lsp_saga{
   border_style = "round",
 }
 
--- for enable capabilities from 'nvim_lsp' source
+-- for capabilities from 'nvim_lsp' source
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 capabilities.snippetSupport = true
--- print(vim.inspect(capabilities))
 
 -- Clone from git, then run 'cargo xtask install --server'
 require('lspconfig').rust_analyzer.setup{
@@ -130,7 +98,7 @@ require('lspconfig').pyright.setup{
 require('lspconfig').bashls.setup{
   filetypes = {'sh', 'zsh'},
   on_attach = LSP_signature_setup.on_attach,
-  capabilities = capabilities,              -- UltiSnips has snippet for zsh
+  capabilities = capabilities,
 }
 
 -- pip install cmake-language-server
@@ -187,6 +155,7 @@ require('lspconfig').texlab.setup{
 }
 
 
+-- Sumneko Lua BOOTSTRAP
 -- https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
 -- Because I install Lua Language manually, We have to do some setup here
 local OS_name
@@ -222,15 +191,12 @@ require('lspconfig').sumneko_lua.setup {
       -- Tell which version of LuaJIT and where it is located
       runtime = {
         version = 'LuaJIT',
-
         path = runtime_path,
       },
 
       -- Get the language server to understand 'vim' global
       diagnostics = {
-        globals = {
-                'vim',
-        }
+        globals = { 'vim' }
       },
 
       -- Tell the Lua language server where is Neovim runtime files
