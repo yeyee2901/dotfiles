@@ -19,4 +19,5 @@ configuration {
 	fullscreen: false;
 }
 
-@import "material.rasi"
+/* @import "material.rasi" */
+@import "solarized.rasi"
