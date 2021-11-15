@@ -1,7 +1,7 @@
 -- For some reason, calling ExpandTrigger,
 -- will make nvim-compe completion behave
 -- like a UltiSnips placeholder.
--- So we can make type functions completions behave like 
+-- So we can make type functions completions behave like
 -- UltiSnips snippets
 local options = {
   UltiSnipsExpandTrigger = "<M-CR>",

@@ -1,45 +1,24 @@
---                                                   ████     ████     ████     ██       --
---       ██   ██          ██   ██                   █░░░ █   █░░░ █   █░░░██   ███       --
---      ░░██ ██   █████  ░░██ ██   █████   █████   ░    ░█  ░█   ░█  ░█  █░█  ░░██       --
---       ░░███   ██░░░██  ░░███   ██░░░██ ██░░░██     ███   ░ ████   ░█ █ ░█   ░██       --
---        ░██   ░███████   ░██   ░███████░███████    █░░     ░░░█    ░██  ░█   ░██       --
---        ██    ░██░░░░    ██    ░██░░░░ ░██░░░░    █          █     ░█   ░█   ░██       --
---       ██     ░░██████  ██     ░░██████░░██████  ░██████    █      ░ ████    ████      --
---      ░░       ░░░░░░  ░░       ░░░░░░  ░░░░░░   ░░░░░░    ░        ░░░░    ░░░░       --
---               ██              ██     ██           ██                                  --
---              ░░              ░░     ░██          ░██                                  --
---               ██   ███████    ██   ██████        ░██ ██   ██  ██████                  --
---              ░██  ░░██░░░██  ░██  ░░░██░         ░██░██  ░██ ░░░░░░██                 --
---              ░██   ░██  ░██  ░██    ░██          ░██░██  ░██  ███████                 --
---              ░██   ░██  ░██  ░██    ░██     ██   ░██░██  ░██ ██░░░░██                 --
---              ░██   ███  ░██  ░██    ░░██   ░██   ███░░██████░░████████                --
---              ░░   ░░░   ░░   ░░      ░░    ░░   ░░░  ░░░░░░  ░░░░░░░░                 --
--------------------------------------------------------------------------------------------
--------------------------------------------------------------------------------------------
+--  _   _                          _             
+-- | \ | |   ___    ___   __   __ (_)  _ __ ___  
+-- |  \| |  / _ \  / _ \  \ \ / / | | | '_ ` _ \ 
+-- | |\  | |  __/ | (_) |  \ V /  | | | | | | | |
+-- |_| \_|  \___|  \___/    \_/   |_| |_| |_| |_|
+--
+-- Config v2.0
+-- by: yeyee2901
+-- main machine: Fedora 35 - i3 edition
+-- 15 November 2021
+                                              
 require('basic-settings')
 require('packer-plugins-setup')
-require('GLOBALS')
+require('keymap')
+vim.cmd[[source ~/.config/nvim/autocmd.vim]]
 
-require('user-plugin-settings.setup-vim_cmake')
-require('user-plugin-settings.setup-nvim-tree')
-require('user-plugin-settings.setup-telescope')
-require('user-plugin-settings.setup-snippets')
-require('user-plugin-settings.setup-markdown-preview')
-require('user-plugin-settings.setup-distant')
-vim.cmd[[source ~/.config/nvim/VimWiki/setup-vimwiki.vim]]
-
-require('LSP-TS-Compe.cmp-config')
-require('LSP-TS-Compe.lsp-diagnostic-setup')
-require('LSP-TS-Compe.lsp-starters')
-require('LSP-TS-Compe.tree-sitter-configs')
-
-require('keymaps')
-
-require('themes.my-themes').set_nord()
-require('themes.my-themes').set_solarized()
-
-vim.cmd('source ~/.config/nvim/autocmds.vim')
-vim.cmd('source ~/.config/nvim/LaTeX/LaTeX_commands.vim')
-
--- User defined commands
-vim.cmd('source ~/.config/nvim/commands.vim')
+-- PLUGIN SETTINGS
+vim.cmd[[source ~/.config/nvim/lua/plugin-settings/tabline.vim]]
+-- require('plugin-settings.color').solarized()
+require('plugin-settings.color').neo_solarized()
+require('plugin-settings.nvim-tree')
+require('cmp-lsp-treesitter')
+require('plugin-settings.telescope')
+require('plugin-settings.markdown')

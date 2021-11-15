@@ -28,11 +28,11 @@ require('packer').startup(function()
     requires = 'kyazdani42/nvim-web-devicons'
   }
 
+  -- Nord color pallete
+  use {'shaunsingh/nord.nvim'}
+
   -- Solarized
   use {'ishan9299/nvim-solarized-lua'}
-
-  -- alternative
-  use {'overcache/NeoSolarized'}
 
   -- Status line
   use {
@@ -45,6 +45,9 @@ require('packer').startup(function()
   -- Colorizer for color codes like this one -> #ff0000
   use {'norcalli/nvim-colorizer.lua'}
 
+  --CMake Integration
+  use {'cdelledonne/vim-cmake'}
+
   -- LSP (Language Server)
   use {'neovim/nvim-lspconfig'}
   use {'ray-x/lsp_signature.nvim'}
@@ -53,7 +56,6 @@ require('packer').startup(function()
   -- Completion engine
   use {'hrsh7th/nvim-cmp',
     requires = {
-      'hrsh7th/cmp-nvim-lua',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
@@ -63,7 +65,7 @@ require('packer').startup(function()
   }
 
   -- Tree Sitter
-  use {'nvim-treesitter/nvim-treesitter'}
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use {'nvim-treesitter/playground'}
   use {'nvim-treesitter/nvim-treesitter-textobjects'}
 
@@ -78,7 +80,12 @@ require('packer').startup(function()
 
   -- Git it gud
   use {'tpope/vim-fugitive'}
-  use {'tpope/vim-rhubarb', requires = {'tpope/vim-fugitive'}}
+  use {
+    'tpope/vim-rhubarb',
+    requires = {
+      'tpope/vim-fugitive'
+    }
+  }
 
   -- Snippets
   use {'SirVer/ultisnips'}
@@ -96,6 +103,7 @@ require('packer').startup(function()
 
   -- Markdown editing
   use {'iamcco/markdown-preview.nvim', run = ':call mkdp#util#install()'}
+  use {'ferrine/md-img-paste.vim'}
 
   -- Note taking
   use {'vimwiki/vimwiki'}

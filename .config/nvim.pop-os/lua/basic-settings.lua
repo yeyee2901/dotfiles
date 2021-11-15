@@ -18,25 +18,24 @@ local my_options = {
   hlsearch        = false,    -- Toggle with <S-h>
   hidden          = true,
   termguicolors   = true,
-  cursorline      = false,
+  cursorline      = true,
   inccommand      = 'split',
   signcolumn      = 'yes',
-  colorcolumn     = '0',      -- disable color column
+  colorcolumn     = '90',     -- conforms python PEP
   lazyredraw      = true,
   splitbelow      = true,
   splitright      = true,
 }
 
 -- For tmux, render italic fonts properly
-vim.cmd('set t_ZH=[3m')
-vim.cmd('set t_ZR=[23m')
+vim.cmd('set t_ZH=[3m')
+vim.cmd('set t_ZR=[23m')
 
 -- Allow Lua syntax in vimscripts ('l' as in lua)
 vim.g.vimsyn_embed = 'l'
 
 vim.cmd('filetype indent plugin on')
 vim.cmd('syntax on')
-
 
 
 -- set all options
